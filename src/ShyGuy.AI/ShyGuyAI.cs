@@ -794,9 +794,9 @@ namespace ShyGuy.AI
 			if ((object)networkManager != null && networkManager.IsListening)
 			{
 				ByteUnpacker.ReadValueBitPacked(reader, out int value);
-				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.Server;
+				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.Server;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
 				((ShyGuyAI)target).KillPlayerServerRpc(value);
-				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;
+				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
 			}
 		}
 
@@ -806,9 +806,9 @@ namespace ShyGuy.AI
 			if ((object)networkManager != null && networkManager.IsListening)
 			{
 				ByteUnpacker.ReadValueBitPacked(reader, out int value);
-				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.Client;
+				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.Client;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
 				((ShyGuyAI)target).KillPlayerClientRpc(value);
-				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;
+				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
 			}
 		}
 
@@ -817,9 +817,9 @@ namespace ShyGuy.AI
 			NetworkManager networkManager = target.NetworkManager;
 			if ((object)networkManager != null && networkManager.IsListening)
 			{
-				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.Server;
+				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.Server;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
 				((ShyGuyAI)target).SitDownServerRpc();
-				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;
+				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
 			}
 		}
 
@@ -828,9 +828,9 @@ namespace ShyGuy.AI
 			NetworkManager networkManager = target.NetworkManager;
 			if ((object)networkManager != null && networkManager.IsListening)
 			{
-				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.Client;
+				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.Client;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
 				((ShyGuyAI)target).SitDownClientRpc();
-				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;
+				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
 			}
 		}
 
@@ -841,9 +841,9 @@ namespace ShyGuy.AI
 			{
 				ByteUnpacker.ReadValueBitPacked(reader, out int value);
 				reader.ReadValueSafe(out bool value2, default(FastBufferWriter.ForPrimitives));
-				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.Server;
+				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.Server;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
 				((ShyGuyAI)target).AddTargetToListServerRpc(value, value2);
-				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;
+				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
 			}
 		}
 
@@ -854,13 +854,13 @@ namespace ShyGuy.AI
 			{
 				ByteUnpacker.ReadValueBitPacked(reader, out int value);
 				reader.ReadValueSafe(out bool value2, default(FastBufferWriter.ForPrimitives));
-				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.Client;
-				((ShyGuyAI)target).AddTargetToListClientRpc(value, value2);
-				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;
+				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.Client;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
+				((ShyGuyAI)target).AddTargetToListClientRpc(value, value2);//change to ((ShyGuyAI)target) from target.rpc_exec_stage
+				((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
 			}
 		}
 
-		protected override string __getTypeName()
+		protected override string __getTypeName() //switch from protected internal override string
 		{
 			return "ShyGuyAI";
 		}
