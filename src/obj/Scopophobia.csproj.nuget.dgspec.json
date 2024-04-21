@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.csproj": {}
+    "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj": {}
   },
   "projects": {
-    "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.csproj": {
+    "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.csproj",
+        "projectUniqueName": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj",
         "projectName": "Scopophobia",
-        "projectPath": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.csproj",
+        "projectPath": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj",
         "packagesPath": "C:\\Users\\mrfaw\\.nuget\\packages\\",
-        "outputPath": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\obj\\",
+        "outputPath": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mrfaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -34,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -50,8 +45,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -60,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }
