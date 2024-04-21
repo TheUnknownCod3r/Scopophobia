@@ -31,7 +31,7 @@ internal class ShyGuySpawnSettings
 				}
 			}
 			___currentLevel.Enemies = enemies;
-			shyEnemy.enemyType.PowerLevel = 3.0f;
+			shyEnemy.enemyType.PowerLevel = 3.0f; //change from int to float
 			shyEnemy.rarity = Config.spawnRarity;
 			shyEnemy.enemyType.probabilityCurve = new AnimationCurve(new Keyframe(0f, Config.startEnemySpawnCurve), new Keyframe(0.5f, Config.midEnemySpawnCurve), new Keyframe(1f, Config.endEnemySpawnCurve));
 			shyEnemy.enemyType.MaxCount = Config.maxSpawnCount;
@@ -40,7 +40,7 @@ internal class ShyGuySpawnSettings
 			{
 				___currentLevel.OutsideEnemies.Add(shyEnemy);
 				SelectableLevel obj = ___currentLevel;
-				obj.maxOutsideEnemyPowerCount += shyEnemy.enemyType.MaxCount * (int)shyEnemy.enemyType.PowerLevel;
+				obj.maxOutsideEnemyPowerCount += shyEnemy.enemyType.MaxCount * (int)shyEnemy.enemyType.PowerLevel; //typecast as int to fix PowerLevel, ty MaskedOverhaulFork
 			}
 			___currentLevel.Enemies.Add(shyEnemy);
 		} catch { }
