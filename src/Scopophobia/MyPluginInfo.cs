@@ -1,10 +1,11 @@
-namespace Scopophobia;
-
-public static class MyPluginInfo
+namespace Scopophobia
 {
-	public const string PLUGIN_GUID = "Scopophobia";
+	public static class MyPluginInfo
+	{
+		public const string PLUGIN_GUID = "Scopophobia";
 
-	public const string PLUGIN_NAME = "Scopophobia";
+		public const string PLUGIN_NAME = "Scopophobia";
 
-	public const string PLUGIN_VERSION = "1.1.2";
+		public const string PLUGIN_VERSION = "1.1.2";
+	}
 }
