@@ -593,7 +593,7 @@ namespace ShyGuy.AI
 				SetEnemyOutside(outside: true);
 			}
 			int preAmount = SCP096Targets.Count;
-			playerScript.KillPlayer(Vector3.zero, spawnBody: true, CauseOfDeath.Mauling);
+			playerScript.KillPlayer(playerScript.transform.position, spawnBody: true, CauseOfDeath.Mauling, 1);
 			AddTargetToList(playerId, remove: true);
 			creatureSFX.PlayOneShot(killPlayerSFX);
 			creatureAnimator.SetInteger("TargetsLeft", preAmount - 1);

@@ -1,53 +1,53 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\",
+  "WorkspaceRootPath": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|g:\\jaspercreations-scopophobia-1.1.1\\ilspy2\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|g:\\jaspercreations-scopophobia-1.1.1\\ilspy2\\syncedinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:syncedinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|g:\\jaspercreations-scopophobia-1.1.1\\ilspy2\\scopophobia\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|g:\\jaspercreations-scopophobia-1.1.1\\ilspy2\\scopophobia\\myplugininfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia\\myplugininfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|g:\\jaspercreations-scopophobia-1.1.1\\ilspy2\\scopophobia\\scopophobiaplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\scopophobia\\scopophobiaplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia\\scopophobiaplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|g:\\jaspercreations-scopophobia-1.1.1\\ilspy2\\scopophobia.netcodepatcher\\netcodepatchedassemblyattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia.netcodepatcher\\netcodepatchedassemblyattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\scopophobia\\myplugininfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia\\myplugininfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|g:\\jaspercreations-scopophobia-1.1.1\\ilspy2\\scopophobia.patches\\getshyguyprefabforlateruse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia.patches\\getshyguyprefabforlateruse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|g:\\jaspercreations-scopophobia-1.1.1\\ilspy2\\scopophobia.patches\\shyguyspawnsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia.patches\\shyguyspawnsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|g:\\jaspercreations-scopophobia-1.1.1\\ilspy2\\shyguy.ai\\shyguyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\shyguy.ai\\shyguyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:shyguy.ai\\shyguyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|g:\\jaspercreations-scopophobia-1.1.1\\ilspy2\\system\\runtime\\compilerservices\\refsafetyrulesattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\scopophobia.patches\\shyguyspawnsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia.patches\\shyguyspawnsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\scopophobia\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\syncedinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:syncedinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\scopophobia.netcodepatcher\\netcodepatchedassemblyattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia.netcodepatcher\\netcodepatchedassemblyattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\scopophobia.patches\\getshyguyprefabforlateruse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia.patches\\getshyguyprefabforlateruse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\system\\runtime\\compilerservices\\refsafetyrulesattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:system\\runtime\\compilerservices\\refsafetyrulesattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|g:\\jaspercreations-scopophobia-1.1.1\\ilspy2\\scopophobia.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\scopophobia.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|g:\\jaspercreations-scopophobia-1.1.1\\ilspy2\\scopophobia.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\scopophobia.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{D0ED03B3-2EDE-4C7B-8366-107E7001D04B}|Scopophobia.csproj|solutionrelative:scopophobia.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
@@ -58,162 +58,153 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "NetcodePatchedAssemblyAttribute.cs",
-              "DocumentMoniker": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.NetcodePatcher\\NetcodePatchedAssemblyAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.NetcodePatcher\\NetcodePatchedAssemblyAttribute.cs",
               "RelativeDocumentMoniker": "Scopophobia.NetcodePatcher\\NetcodePatchedAssemblyAttribute.cs",
-              "ToolTip": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.NetcodePatcher\\NetcodePatchedAssemblyAttribute.cs",
+              "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.NetcodePatcher\\NetcodePatchedAssemblyAttribute.cs",
               "RelativeToolTip": "Scopophobia.NetcodePatcher\\NetcodePatchedAssemblyAttribute.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T01:45:53.176Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GetShyGuyPrefabForLaterUse.cs",
-              "DocumentMoniker": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.Patches\\GetShyGuyPrefabForLaterUse.cs",
-              "RelativeDocumentMoniker": "Scopophobia.Patches\\GetShyGuyPrefabForLaterUse.cs",
-              "ToolTip": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.Patches\\GetShyGuyPrefabForLaterUse.cs",
-              "RelativeToolTip": "Scopophobia.Patches\\GetShyGuyPrefabForLaterUse.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T01:44:58.756Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ShyGuySpawnSettings.cs",
-              "DocumentMoniker": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.Patches\\ShyGuySpawnSettings.cs",
-              "RelativeDocumentMoniker": "Scopophobia.Patches\\ShyGuySpawnSettings.cs",
-              "ToolTip": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.Patches\\ShyGuySpawnSettings.cs",
-              "RelativeToolTip": "Scopophobia.Patches\\ShyGuySpawnSettings.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T01:44:55.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-21T01:45:53.176Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "GetShyGuyPrefabForLaterUse.cs",
+              "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.Patches\\GetShyGuyPrefabForLaterUse.cs",
+              "RelativeDocumentMoniker": "Scopophobia.Patches\\GetShyGuyPrefabForLaterUse.cs",
+              "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.Patches\\GetShyGuyPrefabForLaterUse.cs",
+              "RelativeToolTip": "Scopophobia.Patches\\GetShyGuyPrefabForLaterUse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-21T01:44:58.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShyGuySpawnSettings.cs",
+              "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.Patches\\ShyGuySpawnSettings.cs",
+              "RelativeDocumentMoniker": "Scopophobia.Patches\\ShyGuySpawnSettings.cs",
+              "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.Patches\\ShyGuySpawnSettings.cs",
+              "RelativeToolTip": "Scopophobia.Patches\\ShyGuySpawnSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-21T01:44:55.695Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ShyGuyAI.cs",
-              "DocumentMoniker": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\ShyGuy.AI\\ShyGuyAI.cs",
+              "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\ShyGuy.AI\\ShyGuyAI.cs",
               "RelativeDocumentMoniker": "ShyGuy.AI\\ShyGuyAI.cs",
-              "ToolTip": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\ShyGuy.AI\\ShyGuyAI.cs",
+              "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\ShyGuy.AI\\ShyGuyAI.cs",
               "RelativeToolTip": "ShyGuy.AI\\ShyGuyAI.cs",
-              "ViewState": "AQIAAB0DAAAAAAAAAAAAACIDAAAHAAAA",
+              "ViewState": "AQIAADwCAAAAAAAAAAAwwFkCAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-21T01:26:25.767Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "SyncedInstance.cs",
-              "DocumentMoniker": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\SyncedInstance.cs",
+              "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\SyncedInstance.cs",
               "RelativeDocumentMoniker": "SyncedInstance.cs",
-              "ToolTip": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\SyncedInstance.cs",
+              "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\SyncedInstance.cs",
               "RelativeToolTip": "SyncedInstance.cs",
               "ViewState": "AQIAACMAAAAAAAAAAAAAwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T01:26:19.561Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-21T01:26:19.561Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "MyPluginInfo.cs",
-              "DocumentMoniker": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia\\MyPluginInfo.cs",
+              "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia\\MyPluginInfo.cs",
               "RelativeDocumentMoniker": "Scopophobia\\MyPluginInfo.cs",
-              "ToolTip": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia\\MyPluginInfo.cs",
+              "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia\\MyPluginInfo.cs",
               "RelativeToolTip": "Scopophobia\\MyPluginInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAsAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-21T01:26:03.113Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ScopophobiaPlugin.cs",
-              "DocumentMoniker": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia\\ScopophobiaPlugin.cs",
+              "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia\\ScopophobiaPlugin.cs",
               "RelativeDocumentMoniker": "Scopophobia\\ScopophobiaPlugin.cs",
-              "ToolTip": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia\\ScopophobiaPlugin.cs",
+              "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia\\ScopophobiaPlugin.cs",
               "RelativeToolTip": "Scopophobia\\ScopophobiaPlugin.cs",
-              "ViewState": "AQIAADQAAAAAAAAAAAAcwA0AAAAyAAAA",
+              "ViewState": "AQIAADcAAAAAAAAAAAAcwFkAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-21T01:25:25.588Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Config.cs",
-              "DocumentMoniker": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia\\Config.cs",
+              "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia\\Config.cs",
               "RelativeDocumentMoniker": "Scopophobia\\Config.cs",
-              "ToolTip": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia\\Config.cs",
+              "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia\\Config.cs",
               "RelativeToolTip": "Scopophobia\\Config.cs",
-              "ViewState": "AQIAANAAAAAAAAAAAAAcwNcAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAANcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T01:25:27.419Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-21T01:25:27.419Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Properties\\AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Properties\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "Properties\\AssemblyInfo.cs",
-              "ToolTip": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Properties\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Properties\\AssemblyInfo.cs",
               "RelativeToolTip": "Properties\\AssemblyInfo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAC7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T01:23:31.797Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-21T01:23:31.797Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "RefSafetyRulesAttribute.cs",
-              "DocumentMoniker": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\System\\Runtime\\CompilerServices\\RefSafetyRulesAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\System\\Runtime\\CompilerServices\\RefSafetyRulesAttribute.cs",
               "RelativeDocumentMoniker": "System\\Runtime\\CompilerServices\\RefSafetyRulesAttribute.cs",
-              "ToolTip": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\System\\Runtime\\CompilerServices\\RefSafetyRulesAttribute.cs",
+              "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\System\\Runtime\\CompilerServices\\RefSafetyRulesAttribute.cs",
               "RelativeToolTip": "System\\Runtime\\CompilerServices\\RefSafetyRulesAttribute.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-21T01:51:50.855Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-21T01:51:50.855Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "Scopophobia",
-              "DocumentMoniker": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.csproj",
+              "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj",
               "RelativeDocumentMoniker": "Scopophobia.csproj",
-              "ToolTip": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.csproj",
+              "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj",
               "RelativeToolTip": "Scopophobia.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-21T01:46:19.837Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-21T01:46:19.837Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "Scopophobia",
-              "DocumentMoniker": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.csproj",
+              "Title": "Scopophobia.csproj",
+              "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj",
               "RelativeDocumentMoniker": "Scopophobia.csproj",
-              "ToolTip": "G:\\jaspercreations-Scopophobia-1.1.1\\ilspy2\\Scopophobia.csproj",
+              "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj",
               "RelativeToolTip": "Scopophobia.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-21T01:46:28.24Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-21T01:46:28.24Z"
             }
           ]
         }

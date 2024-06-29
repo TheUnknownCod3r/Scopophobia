@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Scopophobia
 {
-	[BepInPlugin("Scopophobia", "Scopophobia", "1.1.2")]
+	[BepInPlugin("Scopophobia", "Scopophobia", "1.1.3")]
 	public class ScopophobiaPlugin : BaseUnityPlugin
 	{
 		private readonly Harmony harmony = new Harmony("Scopophobia");
@@ -83,7 +83,6 @@ namespace Scopophobia
 				}
 			}
 			logger.LogInfo("Scopophobia | SCP-096 has entered the facility. All remaining personnel proceed with caution.");
-			logger.LogInfo("Patched for v50 by TheUnknownCod3r, originally by JasperCreations");
 			harmony.PatchAll(typeof(Plugin));
 			harmony.PatchAll(typeof(GetShyGuyPrefabForLaterUse));
 			harmony.PatchAll(typeof(ShyGuySpawnSettings));
