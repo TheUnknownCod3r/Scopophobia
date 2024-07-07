@@ -12,7 +12,7 @@ internal class ShyGuySpawnSettings
 
 	[HarmonyPatch("BeginEnemySpawning")]
 	[HarmonyPrefix]
-	private static void UpdateSpawnRates(ref SelectableLevel ___currentLevel)
+	public static void UpdateSpawnRates(ref SelectableLevel ___currentLevel) //set as public
 	{
 		if (!Config.appears || ScopophobiaPlugin.shyPrefab == null)
 		{
@@ -41,8 +41,9 @@ internal class ShyGuySpawnSettings
 				___currentLevel.OutsideEnemies.Add(shyEnemy);
 				SelectableLevel obj = ___currentLevel;
 				obj.maxOutsideEnemyPowerCount += shyEnemy.enemyType.MaxCount * (int)shyEnemy.enemyType.PowerLevel; //typecast as int to fix PowerLevel, ty MaskedOverhaulFork
+					ScopophobiaPlugin.logger.LogInfo("Theres a Shy Guy outside... Proceed with caution"); //Test to see if Shy guy spawns outside, see below
 			}
-			___currentLevel.Enemies.Add(shyEnemy);
+			if (!___currentLevel.OutsideEnemies.Contains(shyEnemy)) { ___currentLevel.Enemies.Add(shyEnemy); ScopophobiaPlugin.logger.LogInfo("Enemy not found Outside, Spawning Inside"); }//Check for outside enemy existing in level
 		} catch { }
 	}
 } }
