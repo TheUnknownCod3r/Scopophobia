@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Scopophobia
 {
-	[BepInPlugin("Scopophobia", "Scopophobia", "1.1.3")]
+	[BepInPlugin("Scopophobia", "Scopophobia", "1.1.4")]
 	public class ScopophobiaPlugin : BaseUnityPlugin
 	{
 		private readonly Harmony harmony = new Harmony("Scopophobia");

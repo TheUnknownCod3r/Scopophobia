@@ -50,9 +50,11 @@ namespace Scopophobia
 
 		public static ConfigEntry<float> MidEnemySpawnCurveConfig;
 
-		public static ConfigEntry<float> EndEnemySpawnCurveConfig;
+        public static ConfigEntry<float> EndEnemySpawnCurveConfig;
 
-		public static bool appears;
+        public static ConfigEntry<float> ShyGuyPowerLevelConfig;
+
+        public static bool appears;
 
 		public static bool hasGlowingEyes;
 
@@ -92,9 +94,11 @@ namespace Scopophobia
 
 		public static float midEnemySpawnCurve;
 
-		public static float endEnemySpawnCurve;
+        public static float endEnemySpawnCurve;
+        
+		public static float ShyGuyPowerLevel;
 
-		public Config(ConfigFile cfg)
+        public Config(ConfigFile cfg)
 		{
 			InitInstance(this);
 			AppearsConfig = cfg.Bind("General", "Enable the Shy Guy", defaultValue: true, "Allows the Shy Guy to spawn in-game.");
@@ -117,6 +121,7 @@ namespace Scopophobia
 			StartEnemySpawnCurveConfig = cfg.Bind("Values.Spawning", "Start Spawn Curve", 0.2f, "Spawn curve for the Shy Guy when the day starts. (typically 0-1)");
 			MidEnemySpawnCurveConfig = cfg.Bind("Values.Spawning", "Midday Spawn Curve", 1f, "Spawn curve for the Shy Guy midday. (typically 0-1)");
 			EndEnemySpawnCurveConfig = cfg.Bind("Values.Spawning", "End of Day Spawn Curve", 0.75f, "Spawn curve for the Shy Guy at the end of day. (typically 0-1)");
+            ShyGuyPowerLevelConfig = cfg.Bind("Values.Spawning", "Shy Guy Power Level", 3.0f, "Default Power Level for the Shy Guy to take up per level. (Default: 3.0)");
 			appears = AppearsConfig.Value;
 			hasGlowingEyes = HasGlowingEyesConfig.Value;
 			bloodyTexture = BloodyTextureConfig.Value;
@@ -137,6 +142,7 @@ namespace Scopophobia
 			startEnemySpawnCurve = StartEnemySpawnCurveConfig.Value;
 			midEnemySpawnCurve = MidEnemySpawnCurveConfig.Value;
 			endEnemySpawnCurve = EndEnemySpawnCurveConfig.Value;
+			ShyGuyPowerLevel = ShyGuyPowerLevelConfig.Value;
 		}
 
 		public static void RequestSync()

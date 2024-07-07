@@ -31,7 +31,7 @@ internal class ShyGuySpawnSettings
 				}
 			}
 			___currentLevel.Enemies = enemies;
-			shyEnemy.enemyType.PowerLevel = 3.0f; //change from int to float
+			shyEnemy.enemyType.PowerLevel = Config.ShyGuyPowerLevel; //change from int to float
 			shyEnemy.rarity = Config.spawnRarity;
 			shyEnemy.enemyType.probabilityCurve = new AnimationCurve(new Keyframe(0f, Config.startEnemySpawnCurve), new Keyframe(0.5f, Config.midEnemySpawnCurve), new Keyframe(1f, Config.endEnemySpawnCurve));
 			shyEnemy.enemyType.MaxCount = Config.maxSpawnCount;
