@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Linq.Expressions;
 using GameNetcodeStuff;
 using Scopophobia;
 using Unity.Netcode;
@@ -88,6 +90,12 @@ namespace ShyGuy.AI
         private float lastInterval = Time.realtimeSinceStartup;
 
         private bool inKillAnimation;
+
+        private bool isInElevatorStartRoom;
+
+        private float timeAtLastUsingEntrance;
+
+        private MineshaftElevatorController elevatorScript;
 
         public List<PlayerControllerB> SCP096Targets = new List<PlayerControllerB>();
 
@@ -194,6 +202,30 @@ namespace ShyGuy.AI
             path1 = new NavMeshPath();
             openDoorSpeedMultiplier = 450f;
             SetShyGuyInitialValues();
+        }
+
+        private bool UseElevator(bool goUp)
+        {
+            Vector3 vector = ((!goUp) ? elevatorScript.elevatorTopPoint.position : elevatorScript.elevatorBottomPoint.position);
+            if (elevatorScript.elevatorFinishedMoving && !PathIsIntersectedByLineOfSight(elevatorScript.elevatorInsidePoint.position, calculatePathDistance: false, avoidLineOfSight: false))
+            {
+                if (elevatorScript.elevatorDoorOpen && Vector3.Distance(base.transform.position, elevatorScript.elevatorInsidePoint.position) < 1f && elevatorScript.elevatorMovingDown == goUp)
+                {
+                    elevatorScript.PressElevatorButtonOnServer(requireFinishedMoving: true);
+                }
+                SetDestinationToPosition(elevatorScript.elevatorInsidePoint.position);
+                return true;
+            }
+            if (Vector3.Distance(base.transform.position, elevatorScript.elevatorInsidePoint.position) > 1f && !PathIsIntersectedByLineOfSight(vector, calculatePathDistance: false, avoidLineOfSight: false))
+            {
+                if (elevatorScript.elevatorDoorOpen && Vector3.Distance(base.transform.position, vector) < 1f && elevatorScript.elevatorMovingDown != goUp && !elevatorScript.elevatorCalled)
+                {
+                    elevatorScript.CallElevatorOnServer(goUp);
+                }
+                SetDestinationToPosition(vector);
+                return true;
+            }
+            return false;
         }
 
         private void CalculateAnimationSpeed()
@@ -347,12 +379,57 @@ namespace ShyGuy.AI
                             {
                                 ChangeOwnershipOfEnemy(targetPlayer.actualClientId);
                             }
-                            if (targetPlayer.isInsideFactory != !isOutside)
+                            if (!targetPlayer.isInsideFactory)
                             {
+                                bool flag = false;
                                 if (Vector3.Distance(transform.position, mainEntrancePosition) < 2f)
                                 {
                                     TeleportEnemy(RoundManager.FindMainEntrancePosition(getTeleportPosition: true, !isOutside), !isOutside);
                                     agent.speed = 0f;
+                                }
+                                if (elevatorScript == null)
+                                {
+                                    elevatorScript = UnityEngine.Object.FindObjectOfType<MineshaftElevatorController>();
+                                    if (elevatorScript == null) return;
+                                }
+                                if (isInElevatorStartRoom)
+                                {
+                                    if (Vector3.Distance(base.transform.position, elevatorScript.elevatorBottomPoint.position) < 10f)
+                                    {
+                                        isInElevatorStartRoom = false;
+                                    }
+                                }
+                                else if (Vector3.Distance(base.transform.position, elevatorScript.elevatorTopPoint.position) < 10f)
+                                {
+                                    isInElevatorStartRoom = true;
+                                }
+                                bool flag2;
+                                if (RoundManager.Instance.currentDungeonType == 4 && !isOutside)
+                                {
+                                    if (!isInElevatorStartRoom)
+                                    {
+                                        flag2 = UseElevator(goUp: true);
+                                        ScopophobiaPlugin.logger.LogInfo("Shy Guy Found the Elevator in the room, going up check #1");
+                                    }
+                                    else
+                                    {
+                                        bool flag3 = false;
+                                        for (int i = 0; i < StartOfRound.Instance.allPlayerScripts.Length; i++)
+                                        {
+                                            if (!StartOfRound.Instance.allPlayerScripts[targetPlayer.actualClientId].isPlayerDead && StartOfRound.Instance.allPlayerScripts[targetPlayer.actualClientId].isPlayerControlled && StartOfRound.Instance.allPlayerScripts[targetPlayer.actualClientId].isInsideFactory)
+                                            {
+                                                flag3 = true;
+                                                break;
+                                            }
+                                        }
+                                        if (flag3)
+                                        {
+                                            flag = true;
+                                            flag2 = UseElevator(goUp: false);
+
+                                        }
+                                        else { flag2 = SetDestinationToPosition(mainEntrancePosition); }
+                                    }
                                 }
                                 else
                                 {
@@ -362,7 +439,37 @@ namespace ShyGuy.AI
                             }
                             else
                             {
-                                SetMovingTowardsTargetPlayer(targetPlayer);
+                                if (elevatorScript == null)
+                                {
+                                    elevatorScript = UnityEngine.Object.FindObjectOfType<MineshaftElevatorController>();
+                                    if (elevatorScript == null) return;
+                                }
+                                if (isInElevatorStartRoom)
+                                {
+                                    if (Vector3.Distance(base.transform.position, elevatorScript.elevatorBottomPoint.position) < 10f)
+                                    {
+                                        isInElevatorStartRoom = false;
+                                    }
+                                }
+                                else if (Vector3.Distance(base.transform.position, elevatorScript.elevatorTopPoint.position) < 10f)
+                                {
+                                    isInElevatorStartRoom = true;
+                                }
+                                if (targetPlayer.isInsideFactory && elevatorScript != null)
+                                {
+                                    if(RoundManager.Instance.currentDungeonType == 4 && !isInElevatorStartRoom)
+                                    {
+                                        UseElevator(goUp: true);
+                                    }
+                                    else
+                                    {
+                                        SetMovingTowardsTargetPlayer(targetPlayer);
+                                    }
+                                }
+                                else
+                                {
+                                    SetMovingTowardsTargetPlayer(targetPlayer);
+                                }
                             }
                         }
                         else if (SCP096Targets.Count <= 0)
