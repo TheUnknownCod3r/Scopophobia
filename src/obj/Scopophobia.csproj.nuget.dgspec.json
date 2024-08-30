@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj": {}
+    "D:\\LC-ExampleEnemy-main\\LC-ExampleEnemy-main\\Plugin\\Scopophobia.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj": {
-      "version": "1.0.0",
+    "D:\\LC-ExampleEnemy-main\\LC-ExampleEnemy-main\\Plugin\\Scopophobia.csproj": {
+      "version": "1.1.14",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj",
+        "projectUniqueName": "D:\\LC-ExampleEnemy-main\\LC-ExampleEnemy-main\\Plugin\\Scopophobia.csproj",
         "projectName": "Scopophobia",
-        "projectPath": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj",
+        "projectPath": "D:\\LC-ExampleEnemy-main\\LC-ExampleEnemy-main\\Plugin\\Scopophobia.csproj",
         "packagesPath": "C:\\Users\\mrfaw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\obj\\",
+        "outputPath": "D:\\LC-ExampleEnemy-main\\LC-ExampleEnemy-main\\Plugin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mrfaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,7 +22,9 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.bepinex.dev/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
@@ -44,6 +46,30 @@
       "frameworks": {
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "BepInEx.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.*, )"
+            },
+            "BepInEx.Core": {
+              "target": "Package",
+              "version": "[5.*, )"
+            },
+            "BepInEx.PluginInfoProps": {
+              "target": "Package",
+              "version": "[1.*, )"
+            },
+            "Evaisa.LethalLib": {
+              "target": "Package",
+              "version": "[0.*, )"
+            },
+            "UnityEngine.Modules": {
+              "include": "Compile",
+              "target": "Package",
+              "version": "[2022.3.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -60,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
