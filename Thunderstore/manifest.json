@@ -1,0 +1,10 @@
+{
+	"name": "Scopophobia",
+	"version_number": "1.1.4",
+	"website_url": "https://www.github.com/theunknowncod3r/Scopophobia",
+	"description": "Adds the Shy Guy (SCP-096) to Lethal Company. Fully custom animations and behavior. Model from SCP: Containment Breach.",
+	"dependencies": [
+		"BepInEx-BepInExPack-5.4.2100",
+		"Evaisa-LethalLib-0.15.1"
+	]
+}
