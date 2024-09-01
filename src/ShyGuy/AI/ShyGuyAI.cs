@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Net;
 using DunGen;
@@ -325,7 +326,7 @@ namespace ShyGuy.AI
                         }
                         PlayerControllerB oldTargetPlayer = targetPlayer;
                         float closestDist = float.PositiveInfinity;
-                        foreach (PlayerControllerB hunted in SCP096Targets)
+                        foreach (PlayerControllerB hunted in SCP096Targets.ToList())
                         {
                             bool sameArea = hunted.isInsideFactory == !isOutside;
                             bool allowedToLeave = true;
