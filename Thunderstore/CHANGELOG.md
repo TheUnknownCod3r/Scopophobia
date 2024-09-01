@@ -1,3 +1,7 @@
+# 1.1.51
+## Code Improvements
++ Shy Guy will now kill players hiding at the top of the Elevator (Whoops).
++ Improved the Elevator Script, will only run when Shy guy is inside now.
 # 1.1.5
 ## Fixes
 + Fix Shy Guy AI. Now he will hunt and Kill, and Ride the Elevator to do it! <3

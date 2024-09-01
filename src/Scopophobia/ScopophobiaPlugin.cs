@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Scopophobia
 {
-    [BepInPlugin("Scopophobia", "Scopophobia", "1.1.4")]
+    [BepInPlugin("Scopophobia", "Scopophobia", "1.1.51")]
     [BepInDependency(LethalLib.Plugin.ModGUID)]
     public class ScopophobiaPlugin : BaseUnityPlugin
     {
