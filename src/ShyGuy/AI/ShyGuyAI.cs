@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq.Expressions;
+using System.Net;
 using DunGen;
 using GameNetcodeStuff;
 using Scopophobia;
@@ -357,21 +358,21 @@ namespace ShyGuy.AI
                             {
                                 ChangeOwnershipOfEnemy(targetPlayer.actualClientId);
                             }
-                            if(!isOutside && RoundManager.Instance.currentDungeonType == 4)
+                            if(!isOutside && RoundManager.Instance.currentDungeonType == 4)//Checks if Shy guy is Outside, if not, will run the code in the brackets.
                             {
-                                elevatorScript = UnityEngine.Object.FindObjectOfType<MineshaftElevatorController>();
+                                elevatorScript = UnityEngine.Object.FindObjectOfType<MineshaftElevatorController>();//Lets see if the Elevator Controls exist, I hope they do, we're on the mineshaft
                                 if (elevatorScript != null)
                                 {
                                     //ScopophobiaPlugin.logger.LogInfo("Starting Elevator Checks");
                                     if (isInElevatorStartRoom)
                                     {
-                                        if (Vector3.Distance(base.transform.position, elevatorScript.elevatorBottomPoint.position) < 3f)
+                                        if (Vector3.Distance(base.transform.position, elevatorScript.elevatorBottomPoint.position) < 3f)//Check distance from Bottom Button
                                         {
                                             isInElevatorStartRoom = false;
                                             //ScopophobiaPlugin.logger.LogInfo("Shy guy is at Lower Elevator");
                                         }
                                     }
-                                    else if (Vector3.Distance(base.transform.position, elevatorScript.elevatorTopPoint.position) < 3f)
+                                    else if (Vector3.Distance(base.transform.position, elevatorScript.elevatorTopPoint.position) < 3f)//Another Distance check, this time for Top Button.
                                     {
                                         isInElevatorStartRoom = true;
                                         //ScopophobiaPlugin.logger.LogInfo("Shy guy is at Upper Elevator");
@@ -379,7 +380,7 @@ namespace ShyGuy.AI
                                     if (RoundManager.Instance.currentDungeonType == 4)
                                     {
                                         //ScopophobiaPlugin.logger.LogInfo("Map Interior is Mineshaft, Committing to Elevator Checks");
-                                        if (!isInElevatorStartRoom)
+                                        if (!isInElevatorStartRoom)//if not in the Elevator Start Room, Need to call the Elevator
                                         {
                                             UseElevator(true);
                                             //ScopophobiaPlugin.logger.LogInfo("Shy guy Going Up");
@@ -387,13 +388,13 @@ namespace ShyGuy.AI
                                         }
                                         else
                                         {
-                                            if (!targetPlayer.isPlayerDead && targetPlayer.isPlayerControlled && targetPlayer.isInsideFactory && Vector3.Distance(targetPlayer.transform.position, elevatorScript.elevatorTopPoint.position) > 50f)
+                                            if (!targetPlayer.isPlayerDead && targetPlayer.isPlayerControlled && targetPlayer.isInsideFactory && Vector3.Distance(targetPlayer.transform.position, elevatorScript.elevatorTopPoint.position) > 50f)//Is the player Inside, or hiding, Lets Distance check them from the Top Point
                                             {
-                                                UseElevator(false);
+                                                UseElevator(false);//Player is actually inside, Probably a fire exit. Lets go back down
                                                 //ScopophobiaPlugin.logger.LogInfo("Flag 3 set, Shy Guy Going Down");
                                                 return;
                                             }
-                                            else
+                                            else//Player is outside, lets just continue
                                             {
                                                 //ScopophobiaPlugin.logger.LogInfo("Everything Executed Correctly here. No flags needed");
                                             }
@@ -401,21 +402,21 @@ namespace ShyGuy.AI
                                     }
                                 }
                             }
-                            if (targetPlayer.isInsideFactory != !isOutside)//Scan door code?
+                            if (targetPlayer.isInsideFactory != !isOutside)//Is Target inside or outside?
                             {
-                                if (Vector3.Distance(transform.position, mainEntrancePosition) < 2f)
+                                if (Vector3.Distance(transform.position, mainEntrancePosition) < 2f)//am I at the door?
                                 {
                                     TeleportEnemy(RoundManager.FindMainEntrancePosition(getTeleportPosition: true, !isOutside), !isOutside);
                                     agent.speed = 0f;
                                     return;
                                 }
-                                else
+                                else//Im not at the door, but lets move towards it since im in the wrong place.
                                 {
                                     movingTowardsTargetPlayer = false;
                                     SetDestinationToPosition(mainEntrancePosition);
                                 }
                             }
-                            else
+                            else//Player in sights, continuing attack strategy
                             {
                                 SetMovingTowardsTargetPlayer(targetPlayer);
                             }

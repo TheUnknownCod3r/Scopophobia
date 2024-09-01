@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{16D11CFF-034B-4CB5-A919-872F684C3788}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\shyguy\\ai\\shyguyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16D11CFF-034B-4CB5-A919-872F684C3788}|Scopophobia.csproj|solutionrelative:shyguy\\ai\\shyguyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{16D11CFF-034B-4CB5-A919-872F684C3788}|Scopophobia.csproj|C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\scopophobia\\myplugininfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{16D11CFF-034B-4CB5-A919-872F684C3788}|Scopophobia.csproj|solutionrelative:scopophobia\\myplugininfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -34,10 +38,6 @@
       "RelativeMoniker": "D:0:0:{16D11CFF-034B-4CB5-A919-872F684C3788}|Scopophobia.csproj|solutionrelative:scopophobia\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{16D11CFF-034B-4CB5-A919-872F684C3788}|Scopophobia.csproj|c:\\users\\mrfaw\\documents\\github\\scopophobia\\src\\shyguy\\ai\\shyguyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16D11CFF-034B-4CB5-A919-872F684C3788}|Scopophobia.csproj|solutionrelative:shyguy\\ai\\shyguyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{16D11CFF-034B-4CB5-A919-872F684C3788}|Scopophobia.csproj|C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\scopophobia.patches\\shyguyspawnsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{16D11CFF-034B-4CB5-A919-872F684C3788}|Scopophobia.csproj|solutionrelative:scopophobia.patches\\shyguyspawnsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -65,7 +65,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -89,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Scopophobia",
               "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj",
               "RelativeDocumentMoniker": "Scopophobia.csproj",
@@ -101,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Properties\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "Properties\\AssemblyInfo.cs",
@@ -114,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Scopophobia.AssemblyInfo.cs",
               "DocumentMoniker": "D:\\LC-ExampleEnemy-main\\LC-ExampleEnemy-main\\Plugin\\obj\\Debug\\netstandard2.1\\Scopophobia.AssemblyInfo.cs",
               "ToolTip": "D:\\LC-ExampleEnemy-main\\LC-ExampleEnemy-main\\Plugin\\obj\\Debug\\netstandard2.1\\Scopophobia.AssemblyInfo.cs",
@@ -125,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "RefSafetyRulesAttribute.cs",
               "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\System\\Runtime\\CompilerServices\\RefSafetyRulesAttribute.cs",
               "RelativeDocumentMoniker": "System\\Runtime\\CompilerServices\\RefSafetyRulesAttribute.cs",
@@ -162,13 +162,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "ShyGuyAI.cs",
               "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\ShyGuy\\AI\\ShyGuyAI.cs",
               "RelativeDocumentMoniker": "ShyGuy\\AI\\ShyGuyAI.cs",
               "ToolTip": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\ShyGuy\\AI\\ShyGuyAI.cs",
               "RelativeToolTip": "ShyGuy\\AI\\ShyGuyAI.cs",
-              "ViewState": "AQIAAGEBAAAAAAAAAAAAAHABAAApAAAA",
+              "ViewState": "AQIAAIMBAAAAAAAAAAAAAKIBAABOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-30T16:32:38.731Z",
               "EditorCaption": ""
@@ -200,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ScopophobiaPlugin.cs",
               "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia\\ScopophobiaPlugin.cs",
               "RelativeDocumentMoniker": "Scopophobia\\ScopophobiaPlugin.cs",
@@ -213,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MyPluginInfo.cs",
               "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia\\MyPluginInfo.cs",
               "RelativeDocumentMoniker": "Scopophobia\\MyPluginInfo.cs",
@@ -226,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SyncedInstance.cs",
               "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\SyncedInstance.cs",
               "RelativeDocumentMoniker": "SyncedInstance.cs",
@@ -239,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Config.cs",
               "DocumentMoniker": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia\\Config.cs",
               "RelativeDocumentMoniker": "Scopophobia\\Config.cs",
