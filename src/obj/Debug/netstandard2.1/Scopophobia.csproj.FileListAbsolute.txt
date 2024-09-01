@@ -42,8 +42,6 @@ D:\LC-ExampleEnemy-main\LC-ExampleEnemy-main\Plugin\obj\Debug\netstandard2.1\Sco
 D:\LC-ExampleEnemy-main\LC-ExampleEnemy-main\Plugin\obj\Debug\netstandard2.1\Scopophobia.csproj.CoreCompileInputs.cache
 D:\LC-ExampleEnemy-main\LC-ExampleEnemy-main\Plugin\obj\Debug\netstandard2.1\Scopopho.D351D4BD.Up2Date
 D:\LC-ExampleEnemy-main\LC-ExampleEnemy-main\Plugin\obj\Debug\netstandard2.1\Scopophobia.dll
-C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\bin\Debug\netstandard2.1\Scopophobia.deps.json
-C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\bin\Debug\netstandard2.1\Scopophobia.dll
 C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\bin\Debug\netstandard2.1\Assembly-CSharp.dll
 C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\bin\Debug\netstandard2.1\Unity.Collections.dll
 C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\bin\Debug\netstandard2.1\Unity.Netcode.Runtime.dll
@@ -86,4 +84,6 @@ C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\obj\Debug\netstandard2.1\Scopoph
 C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\obj\Debug\netstandard2.1\Scopophobia.csproj.CoreCompileInputs.cache
 C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\obj\Debug\netstandard2.1\Scopophobia.sourcelink.json
 C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\obj\Debug\netstandard2.1\Scopopho.D351D4BD.Up2Date
-C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\obj\Debug\netstandard2.1\Scopophobia.dll
+C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\bin\Debug\netstandard2.1\JasperCreations.Scopophobia.deps.json
+C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\bin\Debug\netstandard2.1\JasperCreations.Scopophobia.dll
+C:\Users\mrfaw\Documents\GitHub\Scopophobia\src\obj\Debug\netstandard2.1\JasperCreations.Scopophobia.dll

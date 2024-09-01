@@ -1,7 +1,7 @@
 # Scopophobia
 ![Logo](https://i.imgur.com/LtRg5e7.png)
 Adds the ***Shy Guy*** (SCP-096) into Lethal Company.
-Fully Compatible up to v55 of Lethal Company!
+Fully Compatible up to v62 of Lethal Company!
 originally by [jasper.creations](https://thunderstore.io/c/lethal-company/p/jaspercreations/), Maintained by TheUnknownCod3r with Permission!
 # Features
 - Fully custom enemy behavior and animation.
@@ -27,7 +27,7 @@ SCP-096 is normally extremely docile, with pressure sensors inside its cell indi
 Upon arriving at SCP-096-1's location, <mark>SCP-096 will proceed to kill and ████████████ SCP-096-1.</mark> 100% of cases have left no traces of SCP-096-1. SCP-096 will then sit down for several minutes before regaining its composure and becoming docile once again.
 
 # Please note
-This mod will most likely not receive future updates due to general work-life/time stuff, but I do a lot of other stuff besides modding!
+This mod will most likely not receive future updates From myself due to personal situations in life, but others have taken up the call!
 
 You can check out my socials here:
 - Patreon: https://www.patreon.com/user?u=120548732
