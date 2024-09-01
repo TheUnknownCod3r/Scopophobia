@@ -22,6 +22,7 @@ namespace ShyGuy.AI
         public Collider mainCollider;
 
         public AudioSource farAudio;
+        public string typeName = "ShyGuyAI";
 
         public AudioSource footstepSource;
 
@@ -951,10 +952,10 @@ namespace ShyGuy.AI
                 ((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
             }
         }
-
-        protected override string __getTypeName() //switch from protected internal override string
+        protected override string __getTypeName()
         {
-            return "ShyGuyAI";
+            return GetType().Name;//Change for release package
+           // return "ShyGuyAI";
         }
     }
 }
