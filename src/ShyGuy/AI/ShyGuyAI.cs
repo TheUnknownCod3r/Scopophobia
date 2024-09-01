@@ -357,7 +357,50 @@ namespace ShyGuy.AI
                             {
                                 ChangeOwnershipOfEnemy(targetPlayer.actualClientId);
                             }
-                            
+                            if(!isOutside && RoundManager.Instance.currentDungeonType == 4)
+                            {
+                                elevatorScript = UnityEngine.Object.FindObjectOfType<MineshaftElevatorController>();
+                                if (elevatorScript != null)
+                                {
+                                    //ScopophobiaPlugin.logger.LogInfo("Starting Elevator Checks");
+                                    if (isInElevatorStartRoom)
+                                    {
+                                        if (Vector3.Distance(base.transform.position, elevatorScript.elevatorBottomPoint.position) < 3f)
+                                        {
+                                            isInElevatorStartRoom = false;
+                                            //ScopophobiaPlugin.logger.LogInfo("Shy guy is at Lower Elevator");
+                                        }
+                                    }
+                                    else if (Vector3.Distance(base.transform.position, elevatorScript.elevatorTopPoint.position) < 3f)
+                                    {
+                                        isInElevatorStartRoom = true;
+                                        //ScopophobiaPlugin.logger.LogInfo("Shy guy is at Upper Elevator");
+                                    }
+                                    if (RoundManager.Instance.currentDungeonType == 4)
+                                    {
+                                        //ScopophobiaPlugin.logger.LogInfo("Map Interior is Mineshaft, Committing to Elevator Checks");
+                                        if (!isInElevatorStartRoom)
+                                        {
+                                            UseElevator(true);
+                                            //ScopophobiaPlugin.logger.LogInfo("Shy guy Going Up");
+                                            return;
+                                        }
+                                        else
+                                        {
+                                            if (!targetPlayer.isPlayerDead && targetPlayer.isPlayerControlled && targetPlayer.isInsideFactory && Vector3.Distance(targetPlayer.transform.position, elevatorScript.elevatorTopPoint.position) > 50f)
+                                            {
+                                                UseElevator(false);
+                                                //ScopophobiaPlugin.logger.LogInfo("Flag 3 set, Shy Guy Going Down");
+                                                return;
+                                            }
+                                            else
+                                            {
+                                                //ScopophobiaPlugin.logger.LogInfo("Everything Executed Correctly here. No flags needed");
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                             if (targetPlayer.isInsideFactory != !isOutside)//Scan door code?
                             {
                                 if (Vector3.Distance(transform.position, mainEntrancePosition) < 2f)
@@ -370,48 +413,6 @@ namespace ShyGuy.AI
                                 {
                                     movingTowardsTargetPlayer = false;
                                     SetDestinationToPosition(mainEntrancePosition);
-                                }
-                                elevatorScript = UnityEngine.Object.FindObjectOfType<MineshaftElevatorController>();
-                                if (elevatorScript != null)
-                                {
-                                    ScopophobiaPlugin.logger.LogInfo("Starting Elevator Checks");
-                                    if (isInElevatorStartRoom)
-                                    {
-                                        if (Vector3.Distance(base.transform.position, elevatorScript.elevatorBottomPoint.position) < 3f)
-                                        {
-                                            isInElevatorStartRoom = false;
-                                            ScopophobiaPlugin.logger.LogInfo("Shy guy is at Lower Elevator");
-                                        }
-                                    }
-                                    else if (Vector3.Distance(base.transform.position, elevatorScript.elevatorTopPoint.position) < 3f)
-                                    {
-                                        isInElevatorStartRoom = true;
-                                        ScopophobiaPlugin.logger.LogInfo("Shy guy is at Upper Elevator");
-                                    }
-                                    if (RoundManager.Instance.currentDungeonType == 4)
-                                    {
-                                        ScopophobiaPlugin.logger.LogInfo("Map Interior is Mineshaft, Committing to Elevator Checks");
-                                        if (!isInElevatorStartRoom)
-                                        {
-                                            UseElevator(true);
-                                            ScopophobiaPlugin.logger.LogInfo("Shy guy Going Up");
-                                            return;
-                                        }
-                                        else
-                                        {
-                                            if (!targetPlayer.isPlayerDead && targetPlayer.isPlayerControlled && targetPlayer.isInsideFactory)
-                                            {
-                                                UseElevator(false);
-                                                ScopophobiaPlugin.logger.LogInfo("Flag 3 set, Shy Guy Going Down");
-                                                return;
-                                            }
-                                            else
-                                            {
-                                                flag = true;
-                                                break;
-                                            }
-                                        }
-                                    }
                                 }
                             }
                             else

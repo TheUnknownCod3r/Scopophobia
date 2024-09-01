@@ -2715,11 +2715,11 @@
   "project": {
     "version": "1.1.14",
     "restore": {
-      "projectUniqueName": "D:\\LC-ExampleEnemy-main\\LC-ExampleEnemy-main\\Plugin\\Scopophobia.csproj",
+      "projectUniqueName": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj",
       "projectName": "Scopophobia",
-      "projectPath": "D:\\LC-ExampleEnemy-main\\LC-ExampleEnemy-main\\Plugin\\Scopophobia.csproj",
+      "projectPath": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\Scopophobia.csproj",
       "packagesPath": "C:\\Users\\mrfaw\\.nuget\\packages\\",
-      "outputPath": "D:\\LC-ExampleEnemy-main\\LC-ExampleEnemy-main\\Plugin\\obj\\",
+      "outputPath": "C:\\Users\\mrfaw\\Documents\\GitHub\\Scopophobia\\src\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mrfaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
