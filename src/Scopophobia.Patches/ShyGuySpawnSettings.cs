@@ -46,7 +46,6 @@ internal class ShyGuySpawnSettings
                 ___currentLevel.OutsideEnemies.Add(shyEnemy);
                 SelectableLevel obj = ___currentLevel;
                 obj.maxOutsideEnemyPowerCount += shyEnemy.enemyType.MaxCount * (int)shyEnemy.enemyType.PowerLevel; //typecast as int to fix PowerLevel, ty MaskedOverhaulFork
-                ScopophobiaPlugin.logger.LogInfo("Shy Guy is able to spawn outside, Adding to spawnable entities");
             }
             ___currentLevel.Enemies.Add(shyEnemy);
         }

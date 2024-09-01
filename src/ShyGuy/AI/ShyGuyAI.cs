@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq.Expressions;
+using DunGen;
 using GameNetcodeStuff;
 using Scopophobia;
 using Unity.Netcode;
@@ -204,30 +205,6 @@ namespace ShyGuy.AI
             SetShyGuyInitialValues();
         }
 
-        private bool UseElevator(bool goUp)
-        {
-            Vector3 vector = ((!goUp) ? elevatorScript.elevatorTopPoint.position : elevatorScript.elevatorBottomPoint.position);
-            if (elevatorScript.elevatorFinishedMoving && !PathIsIntersectedByLineOfSight(elevatorScript.elevatorInsidePoint.position, calculatePathDistance: false, avoidLineOfSight: false))
-            {
-                if (elevatorScript.elevatorDoorOpen && Vector3.Distance(base.transform.position, elevatorScript.elevatorInsidePoint.position) < 1f && elevatorScript.elevatorMovingDown == goUp)
-                {
-                    elevatorScript.PressElevatorButtonOnServer(requireFinishedMoving: true);
-                }
-                SetDestinationToPosition(elevatorScript.elevatorInsidePoint.position);
-                return true;
-            }
-            if (Vector3.Distance(base.transform.position, elevatorScript.elevatorInsidePoint.position) > 1f && !PathIsIntersectedByLineOfSight(vector, calculatePathDistance: false, avoidLineOfSight: false))
-            {
-                if (elevatorScript.elevatorDoorOpen && Vector3.Distance(base.transform.position, vector) < 1f && elevatorScript.elevatorMovingDown != goUp && !elevatorScript.elevatorCalled)
-                {
-                    elevatorScript.CallElevatorOnServer(goUp);
-                }
-                SetDestinationToPosition(vector);
-                return true;
-            }
-            return false;
-        }
-
         private void CalculateAnimationSpeed()
         {
             float num = (transform.position - previousPosition).magnitude;
@@ -370,6 +347,7 @@ namespace ShyGuy.AI
                         }
                         if (targetPlayer != null)
                         {
+                            bool flag = false;
                             creatureAnimator.SetFloat("DistanceToTarget", Vector3.Distance(transform.position, targetPlayer.transform.position));
                             if (roamMap.inProgress)
                             {
@@ -379,97 +357,66 @@ namespace ShyGuy.AI
                             {
                                 ChangeOwnershipOfEnemy(targetPlayer.actualClientId);
                             }
-                            if (!targetPlayer.isInsideFactory)
+                            
+                            if (targetPlayer.isInsideFactory != !isOutside)//Scan door code?
                             {
-                                bool flag = false;
                                 if (Vector3.Distance(transform.position, mainEntrancePosition) < 2f)
                                 {
                                     TeleportEnemy(RoundManager.FindMainEntrancePosition(getTeleportPosition: true, !isOutside), !isOutside);
                                     agent.speed = 0f;
-                                }
-                                if (elevatorScript == null)
-                                {
-                                    elevatorScript = UnityEngine.Object.FindObjectOfType<MineshaftElevatorController>();
-                                    if (elevatorScript == null) return;
-                                }
-                                if (isInElevatorStartRoom)
-                                {
-                                    if (Vector3.Distance(base.transform.position, elevatorScript.elevatorBottomPoint.position) < 10f)
-                                    {
-                                        isInElevatorStartRoom = false;
-                                    }
-                                }
-                                else if (Vector3.Distance(base.transform.position, elevatorScript.elevatorTopPoint.position) < 10f)
-                                {
-                                    isInElevatorStartRoom = true;
-                                }
-                                bool flag2;
-                                if (RoundManager.Instance.currentDungeonType == 4 && !isOutside)
-                                {
-                                    if (!isInElevatorStartRoom)
-                                    {
-                                        flag2 = UseElevator(goUp: true);
-                                        ScopophobiaPlugin.logger.LogInfo("Shy Guy Found the Elevator in the room, going up check #1");
-                                    }
-                                    else
-                                    {
-                                        bool flag3 = false;
-                                        for (int i = 0; i < StartOfRound.Instance.allPlayerScripts.Length; i++)
-                                        {
-                                            if (!StartOfRound.Instance.allPlayerScripts[targetPlayer.actualClientId].isPlayerDead && StartOfRound.Instance.allPlayerScripts[targetPlayer.actualClientId].isPlayerControlled && StartOfRound.Instance.allPlayerScripts[targetPlayer.actualClientId].isInsideFactory)
-                                            {
-                                                flag3 = true;
-                                                break;
-                                            }
-                                        }
-                                        if (flag3)
-                                        {
-                                            flag = true;
-                                            flag2 = UseElevator(goUp: false);
-
-                                        }
-                                        else { flag2 = SetDestinationToPosition(mainEntrancePosition); }
-                                    }
+                                    return;
                                 }
                                 else
                                 {
                                     movingTowardsTargetPlayer = false;
                                     SetDestinationToPosition(mainEntrancePosition);
                                 }
+                                elevatorScript = UnityEngine.Object.FindObjectOfType<MineshaftElevatorController>();
+                                if (elevatorScript != null)
+                                {
+                                    ScopophobiaPlugin.logger.LogInfo("Starting Elevator Checks");
+                                    if (isInElevatorStartRoom)
+                                    {
+                                        if (Vector3.Distance(base.transform.position, elevatorScript.elevatorBottomPoint.position) < 3f)
+                                        {
+                                            isInElevatorStartRoom = false;
+                                            ScopophobiaPlugin.logger.LogInfo("Shy guy is at Lower Elevator");
+                                        }
+                                    }
+                                    else if (Vector3.Distance(base.transform.position, elevatorScript.elevatorTopPoint.position) < 3f)
+                                    {
+                                        isInElevatorStartRoom = true;
+                                        ScopophobiaPlugin.logger.LogInfo("Shy guy is at Upper Elevator");
+                                    }
+                                    if (RoundManager.Instance.currentDungeonType == 4)
+                                    {
+                                        ScopophobiaPlugin.logger.LogInfo("Map Interior is Mineshaft, Committing to Elevator Checks");
+                                        if (!isInElevatorStartRoom)
+                                        {
+                                            UseElevator(true);
+                                            ScopophobiaPlugin.logger.LogInfo("Shy guy Going Up");
+                                            return;
+                                        }
+                                        else
+                                        {
+                                            if (!targetPlayer.isPlayerDead && targetPlayer.isPlayerControlled && targetPlayer.isInsideFactory)
+                                            {
+                                                UseElevator(false);
+                                                ScopophobiaPlugin.logger.LogInfo("Flag 3 set, Shy Guy Going Down");
+                                                return;
+                                            }
+                                            else
+                                            {
+                                                flag = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
                             }
                             else
                             {
-                                if (elevatorScript == null)
-                                {
-                                    elevatorScript = UnityEngine.Object.FindObjectOfType<MineshaftElevatorController>();
-                                    if (elevatorScript == null) return;
-                                }
-                                if (isInElevatorStartRoom)
-                                {
-                                    if (Vector3.Distance(base.transform.position, elevatorScript.elevatorBottomPoint.position) < 10f)
-                                    {
-                                        isInElevatorStartRoom = false;
-                                    }
-                                }
-                                else if (Vector3.Distance(base.transform.position, elevatorScript.elevatorTopPoint.position) < 10f)
-                                {
-                                    isInElevatorStartRoom = true;
-                                }
-                                if (targetPlayer.isInsideFactory && elevatorScript != null)
-                                {
-                                    if(RoundManager.Instance.currentDungeonType == 4 && !isInElevatorStartRoom)
-                                    {
-                                        UseElevator(goUp: true);
-                                    }
-                                    else
-                                    {
-                                        SetMovingTowardsTargetPlayer(targetPlayer);
-                                    }
-                                }
-                                else
-                                {
-                                    SetMovingTowardsTargetPlayer(targetPlayer);
-                                }
+                                SetMovingTowardsTargetPlayer(targetPlayer);
                             }
                         }
                         else if (SCP096Targets.Count <= 0)
@@ -505,6 +452,29 @@ namespace ShyGuy.AI
                 entranceTeleport.entrancePointAudio.PlayOneShot(entranceTeleport.doorAudios[0]);
                 WalkieTalkie.TransmitOneShotAudio(entranceTeleport.entrancePointAudio, entranceTeleport.doorAudios[0]);
             }
+        }
+        private bool UseElevator(bool goUp)
+        {
+            Vector3 vector = ((!goUp) ? elevatorScript.elevatorTopPoint.position : elevatorScript.elevatorBottomPoint.position);
+            if (elevatorScript.elevatorFinishedMoving && !PathIsIntersectedByLineOfSight(elevatorScript.elevatorInsidePoint.position, calculatePathDistance: false, avoidLineOfSight: false))
+            {
+                if (elevatorScript.elevatorDoorOpen && Vector3.Distance(base.transform.position, elevatorScript.elevatorInsidePoint.position) < 1f && elevatorScript.elevatorMovingDown == goUp)
+                {
+                    elevatorScript.PressElevatorButtonOnServer(requireFinishedMoving: true);
+                }
+                SetDestinationToPosition(elevatorScript.elevatorInsidePoint.position);
+                return true;
+            }
+            if (Vector3.Distance(base.transform.position, elevatorScript.elevatorInsidePoint.position) > 1f && !PathIsIntersectedByLineOfSight(vector, calculatePathDistance: false, avoidLineOfSight: false))
+            {
+                if (elevatorScript.elevatorDoorOpen && Vector3.Distance(base.transform.position, vector) < 1f && elevatorScript.elevatorMovingDown != goUp && !elevatorScript.elevatorCalled)
+                {
+                    elevatorScript.CallElevatorOnServer(goUp);
+                }
+                SetDestinationToPosition(vector);
+                return true;
+            }
+            return false;
         }
 
         public override void Update()
