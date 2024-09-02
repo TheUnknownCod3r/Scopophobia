@@ -954,8 +954,7 @@ namespace ShyGuy.AI
         }
         protected override string __getTypeName()
         {
-            return GetType().Name;//Change for release package
-           // return "ShyGuyAI";
+           return "ShyGuyAI";//needs to be here
         }
     }
 }
