@@ -1,4 +1,4 @@
-
+**FULLY UPDATED FOR V70+!**
 # Scopophobia - SCP096 Has Escaped
 
 Scopophobia is a mod for Lethal Company that adds SCP096 - The Shy Guy into the game as a monster, complete with custom animations, sound effects, and behaviour. Credit for the mod originally goes to JasperCreations for all his hard work! <3
