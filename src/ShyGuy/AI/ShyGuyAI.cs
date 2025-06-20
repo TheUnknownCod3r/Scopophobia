@@ -639,41 +639,13 @@ namespace ShyGuy.AI
         [ServerRpc(RequireOwnership = false)]
         private void KillPlayerServerRpc(int playerId)
         {
-            NetworkManager networkManager = NetworkManager;
-            if ((object)networkManager != null && networkManager.IsListening)
-            {
-                if (__rpc_exec_stage != __RpcExecStage.Server && (networkManager.IsClient || networkManager.IsHost))
-                {
-                    ServerRpcParams serverRpcParams = default;
-                    FastBufferWriter bufferWriter = __beginSendServerRpc(2556963367u, serverRpcParams, RpcDelivery.Reliable);
-                    BytePacker.WriteValueBitPacked(bufferWriter, playerId);
-                    __endSendServerRpc(ref bufferWriter, 2556963367u, serverRpcParams, RpcDelivery.Reliable);
-                }
-                if (__rpc_exec_stage == __RpcExecStage.Server && (networkManager.IsServer || networkManager.IsHost))
-                {
-                    KillPlayerClientRpc(playerId);
-                }
-            }
+            KillPlayerClientRpc(playerId);
         }
 
         [ClientRpc]
         private void KillPlayerClientRpc(int playerId)
         {
-            NetworkManager networkManager = NetworkManager;
-            if ((object)networkManager != null && networkManager.IsListening)
-            {
-                if (__rpc_exec_stage != __RpcExecStage.Client && (networkManager.IsServer || networkManager.IsHost))
-                {
-                    ClientRpcParams clientRpcParams = default;
-                    FastBufferWriter bufferWriter = __beginSendClientRpc(2298532976u, clientRpcParams, RpcDelivery.Reliable);
-                    BytePacker.WriteValueBitPacked(bufferWriter, playerId);
-                    __endSendClientRpc(ref bufferWriter, 2298532976u, clientRpcParams, RpcDelivery.Reliable);
-                }
-                if (__rpc_exec_stage == __RpcExecStage.Client && (networkManager.IsClient || networkManager.IsHost))
-                {
-                    StartCoroutine(killPlayerAnimation(playerId));
-                }
-            }
+            StartCoroutine(killPlayerAnimation(playerId));
         }
 
         private IEnumerator killPlayerAnimation(int playerId)
@@ -729,39 +701,13 @@ namespace ShyGuy.AI
         [ServerRpc(RequireOwnership = false)]
         private void SitDownServerRpc()
         {
-            NetworkManager networkManager = NetworkManager;
-            if ((object)networkManager != null && networkManager.IsListening)
-            {
-                if (__rpc_exec_stage != __RpcExecStage.Server && (networkManager.IsClient || networkManager.IsHost))
-                {
-                    ServerRpcParams serverRpcParams = default;
-                    FastBufferWriter bufferWriter = __beginSendServerRpc(652446748u, serverRpcParams, RpcDelivery.Reliable);
-                    __endSendServerRpc(ref bufferWriter, 652446748u, serverRpcParams, RpcDelivery.Reliable);
-                }
-                if (__rpc_exec_stage == __RpcExecStage.Server && (networkManager.IsServer || networkManager.IsHost))
-                {
-                    SitDownClientRpc();
-                }
-            }
+            SitDownClientRpc();
         }
 
         [ClientRpc]
         private void SitDownClientRpc()
         {
-            NetworkManager networkManager = NetworkManager;
-            if ((object)networkManager != null && networkManager.IsListening)
-            {
-                if (__rpc_exec_stage != __RpcExecStage.Client && (networkManager.IsServer || networkManager.IsHost))
-                {
-                    ClientRpcParams clientRpcParams = default;
-                    FastBufferWriter bufferWriter = __beginSendClientRpc(2536632143u, clientRpcParams, RpcDelivery.Reliable);
-                    __endSendClientRpc(ref bufferWriter, 2536632143u, clientRpcParams, RpcDelivery.Reliable);
-                }
-                if (__rpc_exec_stage == __RpcExecStage.Client && (networkManager.IsClient || networkManager.IsHost))
-                {
-                    SitDownOnLocalClient();
-                }
-            }
+            SitDownOnLocalClient();
         }
 
         public void SitDownOnLocalClient()
@@ -793,43 +739,13 @@ namespace ShyGuy.AI
         [ServerRpc(RequireOwnership = false)]
         public void AddTargetToListServerRpc(int playerId, bool remove)
         {
-            NetworkManager networkManager = NetworkManager;
-            if ((object)networkManager != null && networkManager.IsListening)
-            {
-                if (__rpc_exec_stage != __RpcExecStage.Server && (networkManager.IsClient || networkManager.IsHost))
-                {
-                    ServerRpcParams serverRpcParams = default;
-                    FastBufferWriter bufferWriter = __beginSendServerRpc(1207108010u, serverRpcParams, RpcDelivery.Reliable);
-                    BytePacker.WriteValueBitPacked(bufferWriter, playerId);
-                    bufferWriter.WriteValueSafe(in remove, default);
-                    __endSendServerRpc(ref bufferWriter, 1207108010u, serverRpcParams, RpcDelivery.Reliable);
-                }
-                if (__rpc_exec_stage == __RpcExecStage.Server && (networkManager.IsServer || networkManager.IsHost))
-                {
-                    AddTargetToListClientRpc(playerId, remove);
-                }
-            }
+            AddTargetToListClientRpc(playerId, remove);
         }
 
         [ClientRpc]
         public void AddTargetToListClientRpc(int playerId, bool remove)
         {
-            NetworkManager networkManager = NetworkManager;
-            if ((object)networkManager != null && networkManager.IsListening)
-            {
-                if (__rpc_exec_stage != __RpcExecStage.Client && (networkManager.IsServer || networkManager.IsHost))
-                {
-                    ClientRpcParams clientRpcParams = default;
-                    FastBufferWriter bufferWriter = __beginSendClientRpc(1413965488u, clientRpcParams, RpcDelivery.Reliable);
-                    BytePacker.WriteValueBitPacked(bufferWriter, playerId);
-                    bufferWriter.WriteValueSafe(in remove, default);
-                    __endSendClientRpc(ref bufferWriter, 1413965488u, clientRpcParams, RpcDelivery.Reliable);
-                }
-                if (__rpc_exec_stage == __RpcExecStage.Client && (networkManager.IsClient || networkManager.IsHost))
-                {
-                    AddTargetToListOnLocalClient(playerId, remove);
-                }
-            }
+            AddTargetToListOnLocalClient(playerId, remove);
         }
 
         public void AddTargetToListOnLocalClient(int playerId, bool remove)
