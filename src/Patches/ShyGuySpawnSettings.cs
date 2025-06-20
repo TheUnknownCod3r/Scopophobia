@@ -1,8 +1,10 @@
 ﻿using HarmonyLib;
+using LethalLib;
 using Scopophobia;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Diagnostics;
 
 [HarmonyPatch(typeof(RoundManager))]
 internal class ShyGuySpawnSettings
@@ -35,7 +37,18 @@ internal class ShyGuySpawnSettings
 
                 }
             }
+            List<SpawnableEnemyWithRarity> outsideEnemies = ___currentLevel.OutsideEnemies;
+            for (int i = 0; i < ___currentLevel.OutsideEnemies.Count; i++)
+            {
+                SpawnableEnemyWithRarity val2 = ___currentLevel.OutsideEnemies[i];
+                if (val2.enemyType.enemyName.ToLower() == "shy guy")
+                {
+                    enemies.Remove(val2);
+
+                }
+            }
             ___currentLevel.Enemies = enemies;
+            ___currentLevel.OutsideEnemies = outsideEnemies;
             shyEnemy.enemyType.PowerLevel = Config.ShyGuyPowerLevel; //change from int to float
             shyEnemy.rarity = Config.spawnRarity;
             shyEnemy.enemyType.probabilityCurve = new AnimationCurve(new Keyframe(0f, Config.startEnemySpawnCurve), new Keyframe(0.5f, Config.midEnemySpawnCurve), new Keyframe(1f, Config.endEnemySpawnCurve));
@@ -52,3 +65,4 @@ internal class ShyGuySpawnSettings
         catch { }
     }
 }
+

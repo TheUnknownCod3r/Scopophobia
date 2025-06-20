@@ -869,7 +869,7 @@ namespace ShyGuy.AI
             creatureVoice.Stop();
         }
 
-        protected override void __initializeVariables()
+        public override void __initializeVariables()
         {
             base.__initializeVariables();
         }
@@ -956,7 +956,7 @@ namespace ShyGuy.AI
                 ((ShyGuyAI)target).__rpc_exec_stage = __RpcExecStage.None;//change to ((ShyGuyAI)target) from target.rpc_exec_stage
             }
         }
-        protected override string __getTypeName()
+        public override string __getTypeName()
         {
            return "ShyGuyAI";//needs to be here
         }

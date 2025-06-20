@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
 using System.Security;
 using System.Security.Permissions;
-using Scopophobia.NetcodePatcher;
 
 [assembly: AssemblyCompany("Scopophobia")]
 [assembly: AssemblyConfiguration("Debug")]
@@ -14,4 +13,3 @@ using Scopophobia.NetcodePatcher;
 [assembly: AssemblyProduct("Scopophobia")]
 [assembly: AssemblyTitle("Scopophobia")]
 [assembly: AssemblyVersion("1.1.51")]
-[module: NetcodePatchedAssembly]

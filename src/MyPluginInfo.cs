@@ -6,6 +6,6 @@
 
         public const string PLUGIN_NAME = "Scopophobia";
 
-        public const string PLUGIN_VERSION = "1.1.51";
+        public const string PLUGIN_VERSION = "1.1.6";
     }
 }

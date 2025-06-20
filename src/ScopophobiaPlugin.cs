@@ -11,8 +11,7 @@ using UnityEngine;
 
 namespace Scopophobia
 {
-    [BepInPlugin("Scopophobia", "Scopophobia", "1.1.51")]
-    [BepInDependency(LethalLib.Plugin.ModGUID)]
+    [BepInPlugin("Scopophobia", "Scopophobia", "1.1.6")]
     public class ScopophobiaPlugin : BaseUnityPlugin
     {
         private readonly Harmony harmony = new Harmony("Scopophobia");
@@ -20,6 +19,7 @@ namespace Scopophobia
         public static EnemyType shyGuy;
 
         public static AssetBundle Assets;
+        internal static ScopophobiaPlugin Instance;
 
         public static SpawnableEnemyWithRarity maskedPrefab;
 
@@ -47,10 +47,10 @@ namespace Scopophobia
                 logger.LogError($"Failed to load asset bundle! {arg}");
             }
         }
-
         private void Awake()
         {
-            harmony.PatchAll(typeof(Config));
+            if (Instance == null) Instance = this;
+            InitializeNetworkBehaviours();
             LoadAssets();
             logger = base.Logger;
             MyConfig = new Config(base.Config);
@@ -66,21 +66,6 @@ namespace Scopophobia
             TerminalKeyword val2 = Assets.LoadAsset<TerminalKeyword>("ShyGuyKeyword.asset");
             NetworkPrefabs.RegisterNetworkPrefab(shyGuy.enemyPrefab);
             Enemies.RegisterEnemy(shyGuy, useWeight, Levels.LevelTypes.All, Enemies.SpawnType.Default, val, val2);
-            Type[] types = Assembly.GetExecutingAssembly().GetTypes();
-            Type[] array = types;
-            foreach (Type type in array)
-            {
-                MethodInfo[] methods = type.GetMethods(BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic);
-                MethodInfo[] array2 = methods;
-                foreach (MethodInfo method in array2)
-                {
-                    object[] attributes = method.GetCustomAttributes(typeof(RuntimeInitializeOnLoadMethodAttribute), inherit: false);
-                    if (attributes.Length != 0)
-                    {
-                        method.Invoke(null, null);
-                    }
-                }
-            }
             logger.LogInfo("Scopophobia | SCP-096 has entered the facility. All remaining personnel proceed with caution.");
             harmony.PatchAll(typeof(Plugin));
             harmony.PatchAll(typeof(GetShyGuyPrefabForLaterUse));
@@ -89,6 +74,23 @@ namespace Scopophobia
             else
             {
                 harmony.PatchAll(typeof(ShyGuySpawnSettings));
+            }
+        }
+        private static void InitializeNetworkBehaviours()
+        {
+            // See https://github.com/EvaisaDev/UnityNetcodePatcher?tab=readme-ov-file#preparing-mods-for-patching
+            var types = Assembly.GetExecutingAssembly().GetTypes();
+            foreach (var type in types)
+            {
+                var methods = type.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+                foreach (var method in methods)
+                {
+                    var attributes = method.GetCustomAttributes(typeof(RuntimeInitializeOnLoadMethodAttribute), false);
+                    if (attributes.Length > 0)
+                    {
+                        method.Invoke(null, null);
+                    }
+                }
             }
         }
     }
