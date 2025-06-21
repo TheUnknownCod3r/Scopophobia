@@ -11,6 +11,7 @@ using Scopophobia;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
+using Zeekerss.Core.Singletons;
 
 namespace ShyGuy.AI
 {
@@ -22,9 +23,22 @@ namespace ShyGuy.AI
 
         public Collider mainCollider;
 
+        public VehicleController CompanyCruiser;
+
+        public HangarShipDoor shipDoors;
+
+        public static bool pryingOpenDoors;
+
+        public AudioClip shipAlarm;
+
+        public AudioSource breakDownDoorAudio;
+
+        public AudioClip breakAndEnter;
+
+
         public AudioSource farAudio;
         public string typeName = "ShyGuyAI";
-
+        float preTime = Time.deltaTime;
         public AudioSource footstepSource;
 
         public AudioClip screamSFX;
@@ -107,6 +121,8 @@ namespace ShyGuy.AI
         public override void Start()
         {
             base.Start();
+            CompanyCruiser = UnityEngine.Object.FindObjectOfType<VehicleController>();
+            shipDoors = UnityEngine.Object.FindObjectOfType<HangarShipDoor>();
             triggerDuration = Config.triggerTime;
             Transform leftEye = null;
             Queue<Transform> queue = new Queue<Transform>();
@@ -271,7 +287,6 @@ namespace ShyGuy.AI
                             sitting = true;
                             creatureAnimator.SetBool("Sitting", value: true);
                             creatureVoice.GetComponent<AudioSource>().volume = 0.5f;
-                            float preTime = creatureVoice.GetComponent<AudioSource>().time;
                             creatureVoice.GetComponent<AudioSource>().clip = crySittingSFX;
                             creatureVoice.GetComponent<AudioSource>().Play();
                             creatureVoice.GetComponent<AudioSource>().time = preTime;
@@ -294,7 +309,6 @@ namespace ShyGuy.AI
                             creatureAnimator.SetBool("Sitting", value: false);
                             creatureVoice.GetComponent<AudioSource>().volume = 0.5f;
                             creatureVoice.GetComponent<AudioSource>().clip = crySFX;
-                            float preTime = creatureVoice.GetComponent<AudioSource>().time;
                             creatureVoice.GetComponent<AudioSource>().Play();
                             creatureVoice.GetComponent<AudioSource>().time = preTime;
                             lastInterval = Time.realtimeSinceStartup;
@@ -422,6 +436,10 @@ namespace ShyGuy.AI
                                     SetDestinationToPosition(mainEntrancePosition);
                                 }
                             }
+                            if (BreakIntoShip())
+                            {
+                                break;
+                            }
                             else//Player in sights, continuing attack strategy
                             {
                                 SetMovingTowardsTargetPlayer(targetPlayer);
@@ -526,6 +544,15 @@ namespace ShyGuy.AI
                     {
                         ChangeOwnershipOfEnemy(GameNetworkManager.Instance.localPlayerController.actualClientId);
                     }
+                    if (pryingOpenDoors)
+                    {
+                        base.transform.position = Vector3.Lerp(base.transform.position, shipDoors.outsideDoorPoint.position, 7f * Time.deltaTime);
+                        base.transform.rotation = Quaternion.Lerp(base.transform.rotation, shipDoors.outsideDoorPoint.rotation, 7f * Time.deltaTime);
+                        shipDoors.shipDoorsAnimator.SetFloat("pryOpenDoor", 0.1f);
+                        creatureAnimator.SetLayerWeight(1, Mathf.Max(0f, creatureAnimator.GetLayerWeight(1) - Time.deltaTime * 5f));
+                        BreakIntoShip();
+                        return;
+                    }
                     if (Vector3.Distance(transform.position, GameNetworkManager.Instance.localPlayerController.transform.position) < 10f)
                     {
                         GameNetworkManager.Instance.localPlayerController.JumpToFearLevel(0.65f);
@@ -547,7 +574,6 @@ namespace ShyGuy.AI
                         farAudio.GetComponent<AudioSource>().volume = 0f;
                         creatureVoice.GetComponent<AudioSource>().volume = 0.5f;
                         creatureVoice.GetComponent<AudioSource>().clip = crySFX;
-                        float preTime = creatureVoice.GetComponent<AudioSource>().time;
                         creatureVoice.GetComponent<AudioSource>().Play();
                         creatureVoice.GetComponent<AudioSource>().time = preTime;
                     }
@@ -555,9 +581,8 @@ namespace ShyGuy.AI
                     {
                         creatureVoice.GetComponent<AudioSource>().volume = 0.5f;
                         creatureVoice.GetComponent<AudioSource>().clip = crySFX;
-                        float preTime = creatureVoice.time;
                         creatureVoice.GetComponent<AudioSource>().Play();
-                        creatureVoice.GetComponent<AudioSource>().GetComponent<AudioSource>().time = preTime;
+                        creatureVoice.GetComponent<AudioSource>().time = preTime;
                     }
                     break;
                 case 1:
@@ -569,13 +594,13 @@ namespace ShyGuy.AI
                         creatureAnimator.SetBool("Rage", value: false);
                         creatureAnimator.SetBool("Sitting", value: false);
                         creatureAnimator.SetBool("triggered", value: true);
-                        creatureVoice.GetComponent<AudioSource>().Stop();
-                        float preTime = farAudio.GetComponent<AudioSource>().time;
-                        farAudio.GetComponent<AudioSource>().volume = 0.275f;
-                        farAudio.GetComponent<AudioSource>().clip = panicSFX;
-                        farAudio.GetComponent<AudioSource>().Play();
-                        agent.speed = 0f;
-                        farAudio.GetComponent<AudioSource>().time = preTime;
+                        creatureVoice.Stop();
+                        farAudio.volume = 0.275f;
+                        farAudio.clip = panicSFX;
+                        farAudio.Play();
+                        agent.speed = 0f; 
+                        farAudio.time = preTime;
+
                         triggerTime = triggerDuration;
                     }
                     triggerTime -= Time.deltaTime;
@@ -592,8 +617,7 @@ namespace ShyGuy.AI
                         previousState = 2;
                         creatureAnimator.SetBool("Rage", value: true);
                         creatureAnimator.SetBool("triggered", value: false);
-                        farAudio.GetComponent<AudioSource>().Stop();
-                        float preTime = farAudio.GetComponent<AudioSource>().time;
+                        farAudio.Stop();
                         farAudio.GetComponent<AudioSource>().volume = 0.4f;
                         farAudio.GetComponent<AudioSource>().clip = screamSFX;
                         farAudio.GetComponent<AudioSource>().Play();
@@ -764,6 +788,61 @@ namespace ShyGuy.AI
             }
         }
 
+        public void BeginPryOpenDoor()
+        {
+            StartPryOpenDoorAnimationOnLocalClient();
+            PryOpenDoorServerRpc((int)GameNetworkManager.Instance.localPlayerController.actualClientId, true, true);
+        }
+
+        public void FinishPryOpenDoor(bool endEarly)
+        {
+            FinishPryOpenDoorAnimationOnLocalClient(endEarly);
+            PryOpenDoorServerRpc((int)GameNetworkManager.Instance.localPlayerController.playerClientId, finishAnim: true, endEarly);
+        }
+        [ServerRpc(RequireOwnership = false)]
+        public void PryOpenDoorServerRpc(int clientSent, bool finishAnim = false, bool endEarly = false)
+        {
+            PryOpenDoorClientRpc(clientSent, finishAnim, endEarly);
+        }
+        [ClientRpc]
+        public void PryOpenDoorClientRpc(int clientSent, bool finishAnim = false, bool endEarly = false)
+        {
+            FinishPryOpenDoorAnimationOnLocalClient(endEarly);
+        }
+        private void FinishPryOpenDoorAnimationOnLocalClient(bool cancelledEarly = false)
+        {
+            shipDoors.shipDoorsAnimator.SetBool("Closed", value: false);
+            StartOfRound.Instance.SetDoorsClosedServerRpc(false);
+            StartOfRound.Instance.SetShipDoorsOverheatServerRpc();
+            shipDoors.doorPower = 0f;
+        }
+
+        private void StartPryOpenDoorAnimationOnLocalClient()
+        {
+            if (Vector3.Distance(StartOfRound.Instance.audioListener.transform.position, base.transform.position) < 15f)
+            {
+                HUDManager.Instance.ShakeCamera(ScreenShakeType.VeryStrong);
+            }
+        }
+
+        public bool BreakIntoShip()
+        {
+            if (shipDoors == null)
+            {
+                Debug.LogError("Shy Guy error: ship door is null");
+                return false;
+            }
+            if (pryingOpenDoors)
+            {
+                return true;
+            }
+            if (StartOfRound.Instance.hangarDoorsClosed && StartOfRound.Instance.shipStrictInnerRoomBounds.bounds.Contains(targetPlayer.transform.position) && Vector3.Distance(base.transform.position, shipDoors.outsideDoorPoint.position) < 4f)
+            {
+                BeginPryOpenDoor();
+                return true;
+            }
+            return false;
+        }
         private void SetShyGuyInitialValues()
         {
             mainCollider = gameObject.GetComponentInChildren<Collider>();
