@@ -63,6 +63,7 @@ namespace Scopophobia
             logger = base.Logger;
             MyConfig = new Config(base.Config);
             base.Config.TryGetEntry("General", "Enable the Shy Guy", out ConfigEntry<bool> shyGuyEnabled);
+            base.Config.TryGetEntry("Painting Spawn Settings", "Enable Painting", out ConfigEntry<bool> enablePainting);
             if (!shyGuyEnabled.Value)
             {
                 return;
@@ -74,7 +75,7 @@ namespace Scopophobia
             Item Paint1 = Assets.LoadAsset<Item>("ShyGuyPainting.asset");
             NetworkPrefabs.RegisterNetworkPrefab(shyGuy.enemyPrefab);
             NetworkPrefabs.RegisterNetworkPrefab(Paint1.spawnPrefab);
-            Items.RegisterScrap(Paint1, Scopophobia.Config.PaintingSpawnRate, Levels.LevelTypes.All);
+            if(enablePainting.Value) Items.RegisterScrap(Paint1, Scopophobia.Config.PaintingSpawnRate, Levels.LevelTypes.All);
             Enemies.RegisterEnemy(shyGuy, 15, Levels.LevelTypes.All, Enemies.SpawnType.Default, val, val2);
             logger.LogInfo("Scopophobia | SCP-096 has entered the facility. All remaining personnel proceed with caution.");
             harmony.PatchAll(typeof(Plugin));

@@ -74,7 +74,32 @@ namespace Scopophobia
             if (!hasSpawnedFromBeltBag && !isTriggered && !isHeldByEnemy && oldTarget.Contains(player) && StartOfRound.Instance.shipHasLanded && StartOfRound.Instance.timeSinceRoundStarted >= 2f && StartOfRound.Instance.currentLevel.spawnEnemiesAndScrap) return;
             isTriggered = true;
             targetPlayer = player;
-            ScopophobiaPlugin.Instance.LogInfoExtended($"Shy Guy Painting triggered by {targetPlayer.playerClientId}");
+            randomChance = UnityEngine.Random.Range(0, 100);
+            var ShyGuy = UnityEngine.Object.FindObjectOfType<ShyGuyAI>();
+            if (randomChance < Mathf.Clamp(Config.ChanceOfShyGuy, 0, 100) && !hasSpawnedFromBeltBag)
+            {
+                if (ShyGuy != null && ShyGuy.hasBeenSpawned)
+                {
+                    oldTarget.Add(player);//fix multiple spawning via players
+                    if (ShyGuy.currentBehaviourStateIndex != 1)
+                        ShyGuy.SwitchToBehaviourState(1);
+                    StartCoroutine(InitializeAI(ShyGuy, player));
+                    ScopophobiaPlugin.Instance.LogInfoExtended($"Triggering Already Spawned Shy Guy!");
+                }
+                else if (ShyGuy == null)
+                {
+                    PlayAudioFX(fearSFX);
+                    StartSpawnShyGuy();
+                    hasSpawnedFromBeltBag = true;
+                    oldTarget.Add(player);//fix multiple spawning via players
+                    ScopophobiaPlugin.Instance.LogInfoExtended("Random chance met, spawning a shy guy from Pickup");
+                }
+            }
+            else
+            {
+                PlayAudioFX(PaintingCrySFX);
+                ResetSpawnState();
+            }
         }
 
         private bool CanTriggerPainting()
@@ -86,7 +111,7 @@ namespace Scopophobia
             base.Update();
 
             // Return early if not held or already completed the effect, or if player is old target, or not owner, ship landed, etc
-            if (!CanTriggerPainting()) return;//check at 2f so we can ensure ship has landed fully before triggering
+            if (!CanTriggerPainting()) return;
             if (!updatedScannode)
             {
                 UpdateScannode(2);//update scannode back to odd painting of SCP
@@ -138,17 +163,36 @@ namespace Scopophobia
             PaintingSound.Play();
         }
 
-        public void StartSpawnShyGuy() { int targetId = (int)playerHeldBy.actualClientId; SpawnEnemyServerRpc(targetId); }
-        [ServerRpc(RequireOwnership = false)] public void SpawnEnemyServerRpc(int targetId) { SpawnEnemyClientRpc(targetId); }
-        [ClientRpc] public void SpawnEnemyClientRpc(int triggeringClientId) { SpawnEnemyOnServer(triggeringClientId); }
-        public void ResetSpawnState() { isTriggered = false; if (targetPlayer != null && !oldTarget.Contains(targetPlayer)) { oldTarget.Add(targetPlayer); } targetPlayer = null; randomChance = 0; }
+        public void StartSpawnShyGuy() 
+        {
+            int targetId = (int)playerHeldBy.actualClientId;
+            SpawnEnemyServerRpc(targetId);
+        }
+        [ServerRpc(RequireOwnership = false)]
+        public void SpawnEnemyServerRpc(int targetId)
+        {
+            SpawnEnemyClientRpc(targetId);
+        }
+        [ClientRpc]
+        public void SpawnEnemyClientRpc(int triggeringClientId)
+        { 
+            SpawnEnemyOnServer(triggeringClientId); 
+        }
+        public void ResetSpawnState() {
+            isTriggered = false;
+            if (targetPlayer != null && !oldTarget.Contains(targetPlayer))
+            { oldTarget.Add(targetPlayer); }
+            targetPlayer = null;
+            randomChance = 0;
+        }
         public void SpawnEnemyOnServer(int targetClientId)
         {
             PlayerControllerB target = StartOfRound.Instance.allPlayerScripts[targetClientId];
-            if (!StartOfRound.Instance.ClientPlayerList.TryGetValue(target.actualClientId, out var value)) ScopophobiaPlugin.Instance.LogWarningExtended($"Failed to get Client ID: {value}");
             Vector3 spawnPos = RoundManager.Instance.GetRandomNavMeshPositionInRadius(target.transform.position, 15f, RoundManager.Instance.navHit);
-            ScopophobiaPlugin.Instance.LogInfoExtended($"[SpawnEnemyOnServer] Triggered by client {targetClientId} ({StartOfRound.Instance.allPlayerScripts[targetClientId].playerUsername})"); SpawnableEnemyWithRarity enemy = RoundManager.Instance.currentLevel.Enemies.Find(x => x.enemyType.enemyName.ToLower() == "shy guy"); if (enemy == null)//if enemy not found, shy guy not included in level enemies?
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   { 
+            ScopophobiaPlugin.Instance.LogInfoExtended($"[SpawnEnemyOnServer] Triggered by client {targetClientId} ({StartOfRound.Instance.allPlayerScripts[targetClientId].playerUsername})"); 
+            SpawnableEnemyWithRarity enemy = RoundManager.Instance.currentLevel.Enemies.Find(x => x.enemyType.enemyName.ToLower() == "shy guy");
+            if (enemy == null)//if enemy not found, shy guy not included in level enemies?
+            { 
                 ScopophobiaPlugin.Instance.LogInfoExtended("Shy Guy Enemy Not found in level, trying local Asset");
                 try
                 { 

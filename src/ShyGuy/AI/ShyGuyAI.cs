@@ -87,7 +87,7 @@ namespace ShyGuy.AI
         private Vector3 previousPosition;
 
         private int previousState = -1;
-
+        private bool canBreakIntoShip;
         private float roamWaitTime = 40f;
 
         [Header("Teleports")]
@@ -133,6 +133,7 @@ namespace ShyGuy.AI
             if(!hasBeenSpawned) hasBeenSpawned = true;
             if (elevatorScript == null) elevatorScript = FindObjectOfType<MineshaftElevatorController>();//Lets see if the Elevator Controls exist, I hope they do, we're on the mineshaft
             triggerDuration = Config.triggerTime;
+            canBreakIntoShip = Config.canBreakIntoShip;
             pathToTeleport = new NavMeshPath();
             //if(Config.RandomSpawnSizes){ this.transform.localScale = new Vector3(Random.Range(0, 1), Random.Range(0, 1), Random.Range(0, 1)); }
             Transform leftEye = null;
@@ -175,16 +176,7 @@ namespace ShyGuy.AI
             
             if (Config.bloodyTexture && bloodyMaterial != null)
             {
-                Transform model = transform.Find("SCP096Model");
-                if (model != null)
-                {
-                    Transform modelMesh = model.Find("tsg_placeholder");
-                    if (modelMesh != null)
-                    {
-                        SkinnedMeshRenderer skinnedModel = modelMesh.GetComponent<SkinnedMeshRenderer>();
-                        skinnedModel?.material = bloodyMaterial;
-                    }
-                }
+                ApplyBloodyMaterial();
             }
             switch (Config.soundPack)
             {
@@ -419,11 +411,11 @@ namespace ShyGuy.AI
                             {
                                 ChangeOwnershipOfEnemy(targetPlayer.actualClientId);
                             }
-                            if (isOutside && targetPlayer.isInHangarShipRoom)
+                            if (isOutside && targetPlayer.isInHangarShipRoom && !pryingOpenDoor)
                             {//try breaking into ship
                                 if (BreakIntoShip()) break;
                             }
-                            if (!isOutside && elevatorScript != null && agent.CalculatePath(targetPlayer.transform.position, path1) && path1.status != NavMeshPathStatus.PathComplete)//Checks if Shy guy is Outside, if not, will run the code in the brackets.
+                            if (!isOutside && elevatorScript != null && agent.CalculatePath(targetPlayer.transform.position, path1) && path1.status != NavMeshPathStatus.PathComplete)//Checks if Enemy is inside, if true, checks a NavMeshPath against the player position, if cannot reach player, heads to Elevator
                             {
                                 //ScopophobiaPlugin.logger.LogInfo("Starting Elevator Checks");
                                 if (Vector3.Distance(transform.position, elevatorScript.elevatorBottomPoint.position) < 7f)//Check distance from Bottom Button
@@ -1007,11 +999,7 @@ namespace ShyGuy.AI
         }
         public bool BreakIntoShip()
         {
-            if (shipDoor == null)
-            {
-                ScopophobiaPlugin.Instance.LogInfoExtended("Scopophobia error: ship door is null");
-                return false;
-            }
+            if (!canBreakIntoShip || shipDoor == null) return false;
             if (pryingOpenDoor)
             {
                 if (pryingDoorAnimTime >= 1f)
@@ -1020,12 +1008,9 @@ namespace ShyGuy.AI
                 }
                 return true;
             }
-            if (CanStartPrying())
-            {
-                BeginPryOpenDoor();
-                return true;
-            }
-            return false;
+            if (!CanStartPrying()) return false;
+            BeginPryOpenDoor();
+            return true;
         }
         private bool CanStartPrying()
         {
