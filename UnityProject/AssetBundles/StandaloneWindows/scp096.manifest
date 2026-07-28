@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 3868195616
+CRC: 2842561239
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4eef61a00d215d690c5eb03c89a1923a
+    Hash: a451e97fee902c5c052143fa00347757
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 331d225d0a0df1096a2c9c16cfd31505
+    Hash: 1fcdc961e7daf1a4b7500a190191ab30
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 4eef61a00d215d690c5eb03c89a1923a
+    Hash: a451e97fee902c5c052143fa00347757
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -43,13 +43,15 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: -105790128, guid: 16d46a77df0e03d49879a93279a3da57, type: 3}
-- Class: 114
-  Script: {fileID: -1826736178, guid: 16d46a77df0e03d49879a93279a3da57, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 65d3fcb39dd67306e9bb17a603308070, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 04f75356a7e9c978bddc7d568e58a50b, type: 3}
+- Class: 114
+  Script: {fileID: -258039633, guid: 111490b10545cca44a6c8ef575de4d40, type: 3}
+- Class: 114
+  Script: {fileID: -105790128, guid: 111490b10545cca44a6c8ef575de4d40, type: 3}
+- Class: 114
+  Script: {fileID: -1826736178, guid: 111490b10545cca44a6c8ef575de4d40, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c30496d6ae6d6f907456e10a94e01ec6, type: 3}
 - Class: 114
@@ -59,11 +61,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 0e80ae96b3eb9177eea5c8f9dadbcda1, type: 3}
 - Class: 114
-  Script: {fileID: -1352062519, guid: 41d6645f64e86c743812eb594070972f, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d3cecf05b78b173605122a700874719c, type: 3}
+- Class: 114
+  Script: {fileID: -1352062519, guid: 41d6645f64e86c743812eb594070972f, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 135
@@ -73,8 +75,6 @@ ClassTypes:
 - Class: 137
   Script: {instanceID: 0}
 - Class: 195
-  Script: {instanceID: 0}
-- Class: 213
   Script: {instanceID: 0}
 - Class: 241
   Script: {instanceID: 0}
@@ -96,9 +96,9 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: Assembly-CSharp
   ClassName: EnemySize
 - AssemblyName: Assembly-CSharp
+  ClassName: EnemyWaterType
+- AssemblyName: Assembly-CSharp
   ClassName: NavSizeLimit
-- AssemblyName: com.github.teamxiaolan.dawnlib
-  ClassName: Dawn.NamespacedKey
 Assets:
 - Assets/Scopophobia/AudioClip/scptriggered.ogg
 - Assets/Scopophobia/AnimationClip/Armature_docilesit_to_idle.anim

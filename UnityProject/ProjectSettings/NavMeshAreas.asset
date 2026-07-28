@@ -24,7 +24,7 @@ NavMeshProjectSettings:
   - name: Overhead
     cost: 1
   - name: Trap
-    cost: 3
+    cost: 1
   - name: Elevator
     cost: 1
   - name: Nest
@@ -69,14 +69,14 @@ NavMeshProjectSettings:
     cost: 1
   - name: 
     cost: 1
-  m_LastAgentTypeID: 1479372276
+  m_LastAgentTypeID: -1923039037
   m_Settings:
   - serializedVersion: 3
     agentTypeID: 0
     agentRadius: 0.35
-    agentHeight: 1
+    agentHeight: 0.6
     agentSlope: 60
-    agentClimb: 0.8
+    agentClimb: 1
     ledgeDropHeight: 15
     maxJumpAcrossDistance: 15
     minRegionArea: 2

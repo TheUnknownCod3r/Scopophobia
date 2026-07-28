@@ -171,7 +171,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485179160941274}
-  m_Mesh: {fileID: 4300000, guid: 95158d6a438c2e942bb89da8f50c5808, type: 2}
+  m_Mesh: {fileID: 4300000, guid: f0fc3a701515a1c4d8b6b70431c4793f, type: 2}
 --- !u!23 &23606733425105898
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -344,15 +344,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3238055484
+  GlobalObjectIdHash: 437188983
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
   SceneMigrationSynchronization: 1
   SpawnWithObservers: 1
-  DontDestroyWithOwner: 1
-  AutoObjectParentSync: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &5819318071170982976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1485179160941274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1826736178, guid: 16d46a77df0e03d49879a93279a3da57, type: 3}
+  m_Script: {fileID: -1826736178, guid: 111490b10545cca44a6c8ef575de4d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grabbable: 1
@@ -373,7 +373,7 @@ MonoBehaviour:
   targetFloorPosition: {x: 0, y: 0, z: 0}
   startFallingPosition: {x: 0, y: 0, z: 0}
   floorYRot: 0
-  fallTime: 0.2
+  fallTime: 0
   hasHitGround: 0
   scrapValue: 0
   itemUsedUp: 0
@@ -395,7 +395,6 @@ MonoBehaviour:
   originalScale: {x: 0, y: 0, z: 0}
   wasOwnerLastFrame: 0
   mainObjectRenderer: {fileID: 23606733425105898}
-  isSendingItemRPC: 0
   scrapPersistedThroughRounds: 0
   heldByPlayerOnServer: 0
   radarIcon: {fileID: 0}
@@ -406,7 +405,9 @@ MonoBehaviour:
   oldTarget: []
   targetPlayer: {fileID: 0}
   randomChance: 0
-  hasSpawned: 0
+  hasSpawnedFromPickup: 0
+  hasSpawnedFromBeltBag: 0
+  hasSpawnedFromInteract: 0
   PaintingSound: {fileID: 82888329056010733}
   PaintingCrySFX:
   - {fileID: 8300000, guid: 2069a9e1f7748d6459dd69dc7a12f585, type: 3}
