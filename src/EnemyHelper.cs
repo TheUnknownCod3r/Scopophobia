@@ -1,5 +1,4 @@
-﻿using LethalLib;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +19,7 @@ namespace Scopophobia
         {
             if (StartOfRound.Instance == null)
             {
-                Plugin.logger.LogError($"Failed to set enemy spawn weight. StartOfRound Instance is null. (EnemyName: {enemyName}, SpawnWeight: {spawnWeight}, EnemyListType: {Utils.GetEnumName(enemyListType)}, PlanetName: {planetName})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy spawn weight. StartOfRound Instance is null. (EnemyName: {enemyName}, SpawnWeight: {spawnWeight}, EnemyListType: {Utils.GetEnumName(enemyListType)}, PlanetName: {planetName})");
                 return;
             }
 
@@ -28,7 +27,7 @@ namespace Scopophobia
 
             if (enemyType == null)
             {
-                Plugin.logger.LogError($"Failed to set enemy spawn weight. EnemyType is null. (EnemyName: {enemyName}, SpawnWeight: {spawnWeight}, EnemyListType: {Utils.GetEnumName(enemyListType)}, PlanetName: {planetName})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy spawn weight. EnemyType is null. (EnemyName: {enemyName}, SpawnWeight: {spawnWeight}, EnemyListType: {Utils.GetEnumName(enemyListType)}, PlanetName: {planetName})");
                 return;
             }
 
@@ -36,13 +35,13 @@ namespace Scopophobia
 
             if (level == null)
             {
-                Plugin.logger.LogError($"Failed to set enemy spawn weight. SelectableLevel is null. (EnemyName: {enemyName}, SpawnWeight: {spawnWeight}, EnemyListType: {Utils.GetEnumName(enemyListType)}, PlanetName: {planetName})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy spawn weight. SelectableLevel is null. (EnemyName: {enemyName}, SpawnWeight: {spawnWeight}, EnemyListType: {Utils.GetEnumName(enemyListType)}, PlanetName: {planetName})");
                 return;
             }
 
             if (!LevelHelper.LevelHasEnemy(planetName, enemyName, enemyListType))
             {
-                Plugin.logger.LogError($"Failed to set enemy spawn weight. SelectableLevel does not contain enemy. (EnemyName: {enemyName}, SpawnWeight: {spawnWeight}, EnemyListType: {Utils.GetEnumName(enemyListType)}, PlanetName: {planetName})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy spawn weight. SelectableLevel does not contain enemy. (EnemyName: {enemyName}, SpawnWeight: {spawnWeight}, EnemyListType: {Utils.GetEnumName(enemyListType)}, PlanetName: {planetName})");
                 return;
             }
 
@@ -64,13 +63,13 @@ namespace Scopophobia
         {
             if (StartOfRound.Instance == null)
             {
-                Plugin.logger.LogError($"Failed to set enemy max spawn count. StartOfRound Instance is null. (EnemyName: {enemyName}, MaxSpawnCount: {maxSpawnCount}, PlanetName: {planetName})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy max spawn count. StartOfRound Instance is null. (EnemyName: {enemyName}, MaxSpawnCount: {maxSpawnCount}, PlanetName: {planetName})");
                 return;
             }
 
             if (!LevelHelper.IsCurrentLevel(planetName))
             {
-                Plugin.logger.LogError($"Failed to set enemy max spawn count. Planet name is not the current planet name. (EnemyName: {enemyName}, MaxSpawnCount: {maxSpawnCount}, PlanetName: {planetName})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy max spawn count. Planet name is not the current planet name. (EnemyName: {enemyName}, MaxSpawnCount: {maxSpawnCount}, PlanetName: {planetName})");
                 return;
             }
 
@@ -78,7 +77,7 @@ namespace Scopophobia
 
             if (enemyType == null)
             {
-                Plugin.logger.LogError($"Failed to set enemy max spawn count. EnemyType is null. (EnemyName: {enemyName}, MaxSpawnCount: {maxSpawnCount}, PlanetName: {planetName})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy max spawn count. EnemyType is null. (EnemyName: {enemyName}, MaxSpawnCount: {maxSpawnCount}, PlanetName: {planetName})");
                 return;
             }
 
@@ -91,19 +90,19 @@ namespace Scopophobia
         {
             if (values == null)
             {
-                Plugin.logger.LogError($"Failed to set enemy probability curve. Values are null. (EnemyName: {enemyName})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy probability curve. Values are null. (EnemyName: {enemyName})");
                 return;
             }
 
             if (values.Length == 0)
             {
-                Plugin.logger.LogError($"Failed to set enemy probability curve. Values are empty. (EnemyName: {enemyName})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy probability curve. Values are empty. (EnemyName: {enemyName})");
                 return;
             }
 
             if (StartOfRound.Instance == null)
             {
-                Plugin.logger.LogError($"Failed to set enemy probability curve. StartOfRound Instance is null. (EnemyName: {enemyName}, Values: {string.Join(", ", values)})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy probability curve. StartOfRound Instance is null. (EnemyName: {enemyName}, Values: {string.Join(", ", values)})");
                 return;
             }
 
@@ -111,7 +110,7 @@ namespace Scopophobia
 
             if (enemyType == null)
             {
-                Plugin.logger.LogError($"Failed to set enemy probability curve. EnemyType is null. (EnemyName: {enemyName}, Values: {string.Join(", ", values)})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy probability curve. EnemyType is null. (EnemyName: {enemyName}, Values: {string.Join(", ", values)})");
                 return;
             }
 
@@ -119,7 +118,7 @@ namespace Scopophobia
 
             if (animationCurve == null)
             {
-                Plugin.logger.LogError($"Failed to set enemy probability curve. AnimationCurve is invalid. (EnemyName: {enemyName}, Values: {string.Join(", ", values)})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy probability curve. AnimationCurve is invalid. (EnemyName: {enemyName}, Values: {string.Join(", ", values)})");
                 return;
             }
 

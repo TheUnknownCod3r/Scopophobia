@@ -15,7 +15,7 @@ MonoBehaviour:
   itemId: 0
   itemName: ShyGuyPainting
   spawnPositionTypes: []
-  twoHanded: 0
+  twoHanded: 1
   twoHandedAnimation: 0
   disableHandsOnWall: 0
   canBeGrabbedBeforeGameStart: 1

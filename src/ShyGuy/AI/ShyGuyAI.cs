@@ -1,5 +1,4 @@
 ﻿using GameNetcodeStuff;
-using LethalLib.Modules;
 using Scopophobia;
 using Scopophobia.Dependencies;
 using Scopophobia.ShyGuy.AI;
@@ -999,7 +998,12 @@ namespace ShyGuy.AI
         }
         public bool BreakIntoShip()
         {
-            if (!canBreakIntoShip || shipDoor == null) return false;
+            if (!canBreakIntoShip) return false;
+            if (shipDoor == null)
+            {
+                ScopophobiaPlugin.Instance.LogInfoExtended("Scopophobia error: ship door is null");
+                return false;
+            }
             if (pryingOpenDoor)
             {
                 if (pryingDoorAnimTime >= 1f)
@@ -1008,9 +1012,12 @@ namespace ShyGuy.AI
                 }
                 return true;
             }
-            if (!CanStartPrying()) return false;
-            BeginPryOpenDoor();
-            return true;
+            if (CanStartPrying())
+            {
+                BeginPryOpenDoor();
+                return true;
+            }
+            return false;
         }
         private bool CanStartPrying()
         {

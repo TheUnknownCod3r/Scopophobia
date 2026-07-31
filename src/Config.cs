@@ -2,7 +2,6 @@
 using BepInEx.Configuration;
 using GameNetcodeStuff;
 using HarmonyLib;
-using LethalLib;
 using Scopophobia.Dependencies;
 using Unity.Collections;
 using Unity.Netcode;
@@ -124,6 +123,7 @@ namespace Scopophobia
             SpeedDocileMultiplierConfig = Bind("General", "Speed Multiplier (Docile)", 1f, requiresRestart: false, "Determines the speed multiplier of the Shy Guy while docile.");
             SpeedRageMultiplierConfig = Bind("General", "Speed Multiplier (Rage)", 1f, requiresRestart: false, "Determines the speed multiplier of the Shy Guy while enraged.");
             VolumeConfig = Bind("General", "Enemy Volume", 5f, requiresRestart: false, "Determines the volume of the Shy Guy, and how loud he is. (Set this Anywhere between 0 and 10. Default: 5f, Old Default: 5f)");//Scopoplugin
+            canBreakIntoShipConfig = Bind("General", "Can Break into Ship", true, requiresRestart: true, "Determines if Shy Guy can break into the Ship");
             
             HasGlowingEyesConfig = Bind("Appearance", "Glowing Eyes", defaultValue: true, requiresRestart: false, "Gives the Shy Guy glowing eyes similar to the Bracken/Flowerman.");
             BloodyTextureConfig = Bind("Appearance", "Bloody Texture", defaultValue: false, requiresRestart: false, "Gives the Shy Guy his bloodier, original texture from SCP: Containment Breach.");
@@ -168,6 +168,7 @@ namespace Scopophobia
             nameToUseForPainting = nameToUseForPaintingConfig.Value;
             ChanceOfShyGuy = ChanceOfShyGuyConfig.Value;
             EnablePainting = EnablePaintingConfig.Value;
+            canBreakIntoShip = canBreakIntoShipConfig.Value;
         }
         private void SetupChangedEvents()
         {
@@ -193,7 +194,7 @@ namespace Scopophobia
             {
                 return;
             }
-            Plugin.logger.LogInfo($"Config sync request received from client: {clientId}");
+            ScopophobiaPlugin.logger.LogInfo($"Config sync request received from client: {clientId}");
             byte[] array = SyncedInstance<Config>.SerializeToBytes(SyncedInstance<Config>.Instance);
             int value = array.Length; 
             int fbwLength = FastBufferWriter.GetWriteSize(array) + IntSize;
@@ -206,7 +207,7 @@ namespace Scopophobia
             }
             catch (Exception e)
             {
-                Plugin.logger.LogInfo($"Error occurred syncing config with client: {clientId}\n{e}");
+                ScopophobiaPlugin.logger.LogInfo($"Error occurred syncing config with client: {clientId}\n{e}");
             }
         }
         public static ConfigEntry<T> Bind<T>(string section, string key, T defaultValue, bool requiresRestart, string description, AcceptableValueBase acceptableValues = null, Action<T> settingChanged = null, ConfigFile configFile = null)
@@ -241,19 +242,19 @@ namespace Scopophobia
         {
             if (!reader.TryBeginRead(SyncedInstance<Config>.IntSize))
             {
-                Plugin.logger.LogError("Config sync error: Could not begin reading buffer.");
+                ScopophobiaPlugin.logger.LogError("Config sync error: Could not begin reading buffer.");
                 return;
             }
             reader.ReadValueSafe(out int length, default);
             if (!reader.TryBeginRead(length))
             {
-                Plugin.logger.LogError("Config sync error: Host could not sync.");
+                ScopophobiaPlugin.logger.LogError("Config sync error: Host could not sync.");
                 return;
             }
             byte[] data = new byte[length];
             reader.ReadBytesSafe(ref data, length);
             SyncedInstance<Config>.SyncInstance(data);
-            Plugin.logger.LogInfo("Successfully synced config with host.");
+            ScopophobiaPlugin.logger.LogInfo("Successfully synced config with host.");
         }
 
         [HarmonyPostfix]

@@ -1,0 +1,192 @@
+ManifestFileVersion: 0
+CRC: 2211214151
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a03ca59722062d0b3153db5e9d52fbac
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7c7e8fd1b02a35ae17dfc7e338bc2d29
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: a03ca59722062d0b3153db5e9d52fbac
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1986756608, guid: 7069fca7a636c4b438518b915b9dda37, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c30496d6ae6d6f907456e10a94e01ec6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3c36d0a92cbb1f26a39169ef0eae393a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+- Class: 114
+  Script: {fileID: 52746634, guid: 8130068d05a768e4183eb7e4559f3ad0, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 195
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 243
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: Battery
+Assets:
+- Assets/Scopophobia/huskypet/animationclip/Pick_up_idle.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpStart_Place.anim
+- Assets/Scopophobia/huskypet/animationclip/Turn_R180_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/EatDrink_start.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpStart_Down_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Crouch_BR_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Jump_Place_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Crouch_L_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Walk_F_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpLand.anim
+- Assets/Scopophobia/huskypet/animationclip/Crouch_Idle_loop_2.anim
+- Assets/Scopophobia/huskypet/animationclip/Idle_5_start.anim
+- Assets/Scopophobia/huskypet/animationclip/Bark.anim
+- Assets/Scopophobia/huskypet/animationclip/Turn_R_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Lie_loop_2.anim
+- Assets/Scopophobia/huskypet/animationclip/Crouch_turn_R_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Swim_L_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Jump_Run_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Attack_F.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpAir_Horiz.anim
+- Assets/Scopophobia/huskypet/animationclip/Scratching.anim
+- Assets/Scopophobia/huskypet/animationclip/Crouch_Idle_start.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpStart_F_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Defecate.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpAir_Up_F.anim
+- Assets/Scopophobia/huskypet/animationclip/Lie_Sleep_start.anim
+- Assets/Scopophobia/huskypet/animationclip/Crouch_F_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Idle_7.anim
+- Assets/Scopophobia/huskypet/animationclip/Swim_idle.anim
+- Assets/Scopophobia/huskypet/animationclip/Trot_L_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Crouch_turn_L_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Sitting_end.anim
+- Assets/Scopophobia/huskypet/huskyred.mat
+- Assets/Scopophobia/huskypet/animationclip/Lie_end.anim
+- Assets/Scopophobia/huskypet/materials/HuskyBlack.mat
+- Assets/Scopophobia/huskypet/animationclip/Crouch_B_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Idle_3.anim
+- Assets/Scopophobia/huskypet/animationclip/Trot_R_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Swim_BL_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Digging_start.anim
+- Assets/Scopophobia/huskypet/animationclip/Walk_BR_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Idle_5_end.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpAir_high_F.anim
+- Assets/Scopophobia/huskypet/animationclip/Drink_loop.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpStart_Up.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpUp_End_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Sitting_start.anim
+- Assets/Scopophobia/huskypet/animationclip/Pissing.anim
+- Assets/Scopophobia/huskypet/animationclip/Idle_1.anim
+- Assets/Scopophobia/huskypet/animationclip/Swim_R_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Static Pose.anim
+- Assets/Scopophobia/huskypet/animationclip/RunFast_F_IP.anim
+- Assets/Scopophobia/huskypet/huskysilver.mat
+- Assets/Scopophobia/huskypet/animationclip/Lie_start.anim
+- Assets/Scopophobia/huskypet/animationclip/Lie_Sleep_end.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpAir_Up.anim
+- Assets/Scopophobia/huskypet/animationclip/Crouch_Idle_end.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpAir_low_F.anim
+- Assets/Scopophobia/huskypet/animationclip/EatDrink_end.anim
+- Assets/Scopophobia/huskypet/animationclip/Turn_L180_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Hit_M.anim
+- Assets/Scopophobia/huskypet/animationclip/Attack_Bite.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpLand_F_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Lie_belly_sleep.anim
+- Assets/Scopophobia/huskypet/animationclip/Jump_F_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Eat_loop.anim
+- Assets/Scopophobia/huskypet/animationclip/Fall.anim
+- Assets/Scopophobia/huskypet/animationclip/Idle_2.anim
+- Assets/Scopophobia/huskypet/animationclip/Pick_up.anim
+- Assets/Scopophobia/huskypet/animationclip/Run_R_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Digging_end.anim
+- Assets/Scopophobia/huskypet/models/PetHusky.asset
+- Assets/Scopophobia/huskypet/animationclip/Crouch_BL_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Lie_belly_loop_1.anim
+- Assets/Scopophobia/huskypet/animationclip/RunFast_R_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Lie_belly_sleep_end.anim
+- Assets/Scopophobia/huskypet/animationclip/Hit_B.anim
+- Assets/Scopophobia/huskypet/animationclip/Sitting_loop_2.anim
+- Assets/Scopophobia/huskypet/animationclip/Put_down.anim
+- Assets/Scopophobia/huskypet/animationclip/Idle_4.anim
+- Assets/Scopophobia/huskypet/animationclip/Lie_Sleep_loop.anim
+- Assets/Scopophobia/huskypet/animationclip/Run_F_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Digging_loop.anim
+- Assets/Scopophobia/huskypet/huskyblack.mat
+- Assets/Scopophobia/huskypet/animationclip/JumpAir_low.anim
+- Assets/Scopophobia/huskypet/animationclip/Idle_6.anim
+- Assets/Scopophobia/huskypet/animationclip/Idle_5_loop.anim
+- Assets/Scopophobia/huskypet/animationclip/Death_L.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpAir_high.anim
+- Assets/Scopophobia/huskypet/animationclip/Sitting_loop_1.anim
+- Assets/Scopophobia/huskypet/animationclip/Lie_loop_1.anim
+- Assets/Scopophobia/huskypet/animationclip/Walk_B_IP.anim
+- Assets/Scopophobia/huskypet/models/HuskyAvatar.asset
+- Assets/Scopophobia/huskypet/animationclip/Attack_J.anim
+- Assets/Scopophobia/huskypet/animationclip/Lie_belly_start.anim
+- Assets/Scopophobia/huskypet/animationclip/Walk_R_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Walk_L_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Swim_Turn_L_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Swim_F_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Swim_BR_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Attack_L.anim
+- Assets/Scopophobia/huskypet/animationclip/Swim_Turn_R_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Turn_L_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Eat_tear.anim
+- Assets/Scopophobia/huskypet/animationclip/Lie_belly_sleep_start.anim
+- Assets/Scopophobia/huskypet/HuskyAnimIP.controller
+- Assets/Scopophobia/huskypet/animationclip/Crouch_R_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Crouch_Idle_loop_1.anim
+- Assets/Scopophobia/huskypet/animationclip/JumpLand_Place.anim
+- Assets/Scopophobia/huskypet/animationclip/Lie_belly_loop_2.anim
+- Assets/Scopophobia/huskypet/animationclip/Walk_BL_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Run_L_IP.anim
+- Assets/Scopophobia/huskypet/huskypurple.mat
+- Assets/Scopophobia/huskypet/animationclip/Attack_R.anim
+- Assets/Scopophobia/huskypet/animationclip/RunFast_L_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Trot_F_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Swim_B_IP.anim
+- Assets/Scopophobia/huskypet/animationclip/Hit_F.anim
+- Assets/Scopophobia/huskypet/animationclip/Lie_belly_end.anim
+- Assets/Scopophobia/huskypet/animationclip/Swim_enter_IP.anim
+- Assets/Scopophobia/huskypet/models/Husky.prefab
+- Assets/Scopophobia/huskypet/animationclip/Death_R.anim
+Dependencies:
+- H:/Unity/LC Template - Copy/LC Template/AssetBundles/StandaloneWindows/scp096

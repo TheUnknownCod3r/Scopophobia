@@ -1,5 +1,4 @@
-﻿using LethalLib;
-using Scopophobia.Data;
+﻿using Scopophobia.Data;
 using Scopophobia;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +25,7 @@ namespace Scopophobia
         {
             if (StartOfRound.Instance == null)
             {
-                Plugin.logger.LogError($"Failed to initialize enemy data list. StartOfRound Instance is null. (EnemyName: {EnemyName})");
+                ScopophobiaPlugin.logger.LogError($"Failed to initialize enemy data list. StartOfRound Instance is null. (EnemyName: {EnemyName})");
                 return;
             }
 
@@ -34,7 +33,7 @@ namespace Scopophobia
             
             if (enemyType == null)
             {
-                Plugin.logger.LogError($"Failed to initialize enemy data list. EnemyType is null. (EnemyName: {EnemyName})");
+                ScopophobiaPlugin.logger.LogError($"Failed to initialize enemy data list. EnemyType is null. (EnemyName: {EnemyName})");
                 return;
             }
 
@@ -75,7 +74,7 @@ namespace Scopophobia
         {
             if (HasEnemyData(level.PlanetName))
             {
-                Plugin.logger.LogWarning($"Failed to add enemy data for level \"{level.PlanetName}\". Enemy data already exists for SelectableLevel.");
+                ScopophobiaPlugin.logger.LogWarning($"Failed to add enemy data for level \"{level.PlanetName}\". Enemy data already exists for SelectableLevel.");
                 return;
             }
 
@@ -83,7 +82,7 @@ namespace Scopophobia
 
             if (enemyType == null)
             {
-                Plugin.logger.LogError($"Failed to add enemy data for level \"{level.PlanetName}\". EnemyType is null");
+                ScopophobiaPlugin.logger.LogError($"Failed to add enemy data for level \"{level.PlanetName}\". EnemyType is null");
                 return;
             }
 
@@ -137,7 +136,7 @@ namespace Scopophobia
 
             if (enemyData == null)
             {
-                Plugin.logger.LogError($"Failed to set enemy data for current level. EnemyData is null. (PlanetName: {LevelHelper.CurrentPlanetName})");
+                ScopophobiaPlugin.logger.LogError($"Failed to set enemy data for current level. EnemyData is null. (PlanetName: {LevelHelper.CurrentPlanetName})");
                 return;
             }
 
